@@ -1,0 +1,355 @@
+.aboutPage {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, #FED049 0%, #FFC107 100%);
+    padding: 150px 0 100px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.heroTitle {
+    font-size: 4rem;
+    font-weight: 800;
+    color: white;
+    font-family: var(--font-heading);
+    margin-bottom: 0;
+}
+
+.waveBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 10;
+}
+
+.waveSvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Main Content Section */
+.mainContent {
+    padding: 100px 0;
+}
+
+.contentGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.imageCol {
+    position: relative;
+}
+
+.imageWrapper {
+    position: relative;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    overflow: hidden;
+    box-shadow: 20px 20px 0 var(--color-yellow);
+}
+
+.mainImage {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.textCol {
+    padding-left: 20px;
+}
+
+.subtitle {
+    color: var(--color-yellow);
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.sectionTitle {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    line-height: 1.2;
+    font-family: var(--font-heading);
+}
+
+.description {
+    color: #777;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+.signature {
+    margin-top: 40px;
+}
+
+.signatureText {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.signatureRole {
+    color: #666;
+    font-weight: 600;
+}
+
+/* Testimonial Section */
+.testimonialSection {
+    background: #F5F1E8;
+    padding: 100px 0;
+}
+
+.sectionSubtitle {
+    color: var(--color-yellow);
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.sectionHeading {
+    font-size: 3rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+}
+
+.sectionDesc {
+    text-align: center;
+    color: #777;
+    max-width: 700px;
+    margin: 0 auto 60px;
+    line-height: 1.8;
+}
+
+.testimonialGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.testimonialCard {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.testimonialText {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.testimonialAuthor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF4A57, #FED049);
+}
+
+.authorName {
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 3px;
+}
+
+.authorRole {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Teacher Section */
+.teacherSection {
+    padding: 100px 0;
+}
+
+.teacherGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.teacherCard {
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.teacherCard:hover {
+    transform: translateY(-10px);
+}
+
+.teacherImageWrapper {
+    padding: 40px 40px 0;
+}
+
+.teacherImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: white;
+    margin: 0 auto;
+    border: 5px solid white;
+}
+
+.teacherInfo {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+}
+
+.teacherName {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    font-family: var(--font-heading);
+}
+
+.teacherRole {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.teacherRed {
+    background: var(--color-primary);
+}
+
+.teacherBlue {
+    background: var(--color-blue);
+}
+
+.teacherYellow {
+    background: var(--color-yellow);
+}
+
+/* Facilities Section */
+.facilitiesSection {
+    padding: 100px 0;
+    background: #F9F9F9;
+}
+
+.facilitiesGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.facilitiesContent {
+    padding-right: 40px;
+}
+
+.facilitiesDesc {
+    color: #777;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.facilitiesList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.facilityItem {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.facilityIcon {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.facilityTitle {
+    font-size: 1.3rem;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+}
+
+.facilityText {
+    color: #777;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.facilitiesImageWrapper {
+    position: relative;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    overflow: hidden;
+    box-shadow: -20px 20px 0 var(--color-blue);
+}
+
+.facilityImg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .heroTitle {
+        font-size: 2.5rem;
+    }
+
+    .contentGrid,
+    .facilitiesGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .testimonialGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .teacherGrid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .sectionHeading {
+        font-size: 2rem;
+    }
+}

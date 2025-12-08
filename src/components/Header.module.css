@@ -32,6 +32,12 @@
     font-family: var(--font-heading);
 }
 
+.logoImage {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
 .nav {
     display: flex;
     align-items: center;
@@ -75,6 +81,64 @@
 .contactBtn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 74, 87, 0.3);
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    padding: 10px 0;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Invisible bridge to prevent dropdown from closing */
+.dropdownMenu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: transparent;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdownItem {
+    display: block;
+    padding: 12px 20px;
+    color: #555;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    transition: all 0.3s;
+}
+
+.dropdownItem:hover {
+    background: var(--color-light-bg);
+    color: var(--color-primary);
+    padding-left: 25px;
 }
 
 @media (max-width: 900px) {
