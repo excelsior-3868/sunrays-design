@@ -1,0 +1,121 @@
+.footer {
+    background-color: var(--color-dark);
+    color: white;
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+    margin-top: 15vw;
+    /* Enough space for the wave */
+    position: relative;
+}
+
+.waveTop {
+    position: absolute;
+    top: -120px;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    transform: rotate(180deg);
+    overflow: hidden;
+}
+
+.waveTop svg {
+    width: calc(100% + 1.3px);
+    height: 121px;
+}
+
+.shapeFill {
+    fill: var(--color-dark);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+}
+
+.column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.logo span {
+    color: var(--color-secondary);
+}
+
+.description {
+    color: #adb5bd;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+.heading {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.links {
+    list-style: none;
+}
+
+.links li {
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.links li:last-child {
+    border-bottom: none;
+}
+
+.links a {
+    color: #ced4da;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.links a:hover {
+    color: var(--color-secondary);
+    transform: translateX(5px);
+}
+
+.contacts p {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: var(--spacing-sm);
+    color: #ced4da;
+}
+
+.bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding-top: var(--spacing-md);
+    }
+
+    .waveTop {
+        top: -50px;
+    }
+
+    .waveTop svg {
+        height: 50px;
+    }
+}
