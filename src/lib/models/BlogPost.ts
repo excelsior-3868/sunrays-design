@@ -56,7 +56,8 @@ const BlogPostSchema = new Schema<IBlogPost>({
 });
 
 // Index for queries
-BlogPostSchema.index({ slug: 1 });
+// Index for queries
+// Slug is already indexed by unique: true
 BlogPostSchema.index({ status: 1, publishedAt: -1 });
 
 export default mongoose.models.BlogPost || mongoose.model<IBlogPost>('BlogPost', BlogPostSchema);

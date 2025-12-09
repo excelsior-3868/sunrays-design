@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     description: 'Upcoming events and activities at Sunrays Pre School',
 };
 
+export const dynamic = 'force-dynamic';
+
 async function getPublishedEvents() {
     await dbConnect();
 

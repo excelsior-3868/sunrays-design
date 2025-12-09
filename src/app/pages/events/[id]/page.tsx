@@ -6,13 +6,16 @@ import dbConnect from '@/lib/db';
 import Event from '@/lib/models/Event';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { id } = await params;
     await dbConnect();
-    const event = await Event.findById(params.id).lean();
+    const event = await Event.findById(id).lean();
 
     if (!event || event.status !== 'published') {
         return {
@@ -38,7 +41,8 @@ async function getEvent(id: string) {
 }
 
 export default async function EventDetailPage({ params }: PageProps) {
-    const event = await getEvent(params.id);
+    const { id } = await params;
+    const event = await getEvent(id);
 
     if (!event) {
         notFound();

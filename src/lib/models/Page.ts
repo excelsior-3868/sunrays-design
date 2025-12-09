@@ -41,7 +41,8 @@ const PageSchema = new Schema<IPage>({
 });
 
 // Index for queries
-PageSchema.index({ slug: 1 });
+// Index for queries
+// Slug is already indexed by unique: true
 PageSchema.index({ status: 1 });
 
 export default mongoose.models.Page || mongoose.model<IPage>('Page', PageSchema);
