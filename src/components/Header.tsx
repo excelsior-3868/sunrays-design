@@ -1,15 +1,21 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import styles from './Header.module.css';
-import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 
 export default function Header() {
     const [showPagesDropdown, setShowPagesDropdown] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
+
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [pathname]);
 
     const isActive = (path: string) => pathname === path;
     const isParentActive = (path: string) => pathname.startsWith(path);
@@ -30,7 +36,8 @@ export default function Header() {
                     <span>Sunrays Pre School</span>
                 </Link>
 
-                <nav className={styles.nav}>
+                {/* Desktop Nav */}
+                <nav className={`${styles.nav} ${styles.desktopNav}`}>
                     <Link
                         href="/"
                         className={`${styles.link} ${isActive('/') ? styles.active : ''}`}
@@ -88,9 +95,38 @@ export default function Header() {
                     </Link>
                 </nav>
 
-                <Link href="/contact" className={styles.contactBtn}>
-                    Contact Us
-                </Link>
+                <div className={styles.rightActions}>
+                    <Link href="/contact" className={styles.contactBtn}>
+                        Contact Us
+                    </Link>
+
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        className={styles.mobileToggle}
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
+
+                {/* Mobile Menu Overlay */}
+                <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.open : ''}`}>
+                    <nav className={styles.mobileNav}>
+                        <Link href="/" className={`${styles.mobileLink} ${isActive('/') ? styles.active : ''}`}>Home</Link>
+                        <Link href="/about" className={`${styles.mobileLink} ${isActive('/about') ? styles.active : ''}`}>About Us</Link>
+                        <Link href="/programs" className={`${styles.mobileLink} ${isActive('/programs') ? styles.active : ''}`}>Programs</Link>
+                        <Link href="/admissions" className={`${styles.mobileLink} ${isActive('/admissions') ? styles.active : ''}`}>Admissions</Link>
+
+                        <div className={styles.mobileDivider}>Pages</div>
+                        <Link href="/pages/gallery" className={styles.mobileLinkSub}>Gallery</Link>
+                        <Link href="/pages/events" className={styles.mobileLinkSub}>Events</Link>
+                        <Link href="/pages/blog" className={styles.mobileLinkSub}>Blog</Link>
+                        <Link href="/pages/faq" className={styles.mobileLinkSub}>FAQ</Link>
+
+                        <Link href="/contact" className={`${styles.mobileLink} ${isActive('/contact') ? styles.active : ''}`}>Contact Us</Link>
+                    </nav>
+                </div>
             </div>
         </header>
     );

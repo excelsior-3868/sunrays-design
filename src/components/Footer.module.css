@@ -109,13 +109,37 @@
 @media (max-width: 768px) {
     .footer {
         padding-top: var(--spacing-md);
+        margin-top: 100px;
     }
 
     .waveTop {
-        top: -50px;
+        top: -60px;
     }
 
     .waveTop svg {
-        height: 50px;
+        height: 60px;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: center;
+        display: flex;
+        gap: 5px;
+    }
+
+    .contacts p {
+        justify-content: center;
+    }
+
+    .links li {
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        display: inline-block;
+        margin: 0 10px 10px 10px;
+        /* Make links more like tags on mobile or just simple list */
     }
 }

@@ -112,7 +112,7 @@
 /* Form Column */
 .formWrapper {
     flex: 1;
-    min-width: 350px;
+    min-width: 280px;
     max-width: 600px;
 }
 
@@ -192,6 +192,8 @@
     .contactInfo {
         width: 100%;
         max-width: 100%;
+        min-width: 0;
+        /* Allow shrinking */
     }
 
     .form {

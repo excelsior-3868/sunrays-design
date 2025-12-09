@@ -17,7 +17,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/hero-bg.png') no-repeat center center/cover;
+    background: url('/hero-new.jpg') no-repeat center center/cover;
     z-index: -1;
     animation: zoomEffect 20s infinite alternate;
 }
@@ -28,7 +28,7 @@
     }
 
     100% {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 }
 
@@ -110,14 +110,18 @@
 
 .blockA {
     bottom: 15%;
-    left: 5%;
+    right: 5%;
+    /* Moved from left to right */
+    left: auto;
     transform: rotate(-15deg);
     animation: floatA 4s ease-in-out infinite alternate;
 }
 
 .blockX {
     bottom: 30%;
-    left: 12%;
+    right: 12%;
+    /* Moved from left to right */
+    left: auto;
     transform: rotate(10deg);
     animation: floatX 5s ease-in-out infinite alternate;
 }
@@ -218,19 +222,89 @@
 }
 
 @media (max-width: 900px) {
-    .title {
-        font-size: 2.5rem;
+    .hero {
+        height: auto;
+        min-height: 500px;
+        padding-bottom: 100px;
+        align-items: center;
+        /* Center vertically on mobile */
+        justify-content: center;
+        text-align: center;
     }
 
+    .contentContainer {
+        padding-top: 100px;
+        /* Add padding because of fixed header */
+    }
+
+    .title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    /* Adjust floating blocks for tablet/mobile */
     .blockA {
-        left: 0;
+        left: unset;
+        right: 5%;
+        bottom: 10%;
         width: 60px;
         height: 60px;
+        opacity: 0.6;
+        /* Dim them a bit so they don't distract */
     }
 
     .blockX {
-        left: 5%;
+        left: unset;
+        right: 12%;
+        bottom: 20%;
         width: 60px;
         height: 60px;
+        opacity: 0.6;
+    }
+
+    .face {
+        width: 40px;
+        height: 40px;
+        border-width: 1px;
+        font-size: 20px;
+    }
+
+    .faceFront {
+        transform: translateZ(20px);
+    }
+
+    .faceBack {
+        transform: rotateY(180deg) translateZ(20px);
+    }
+
+    .faceRight {
+        transform: rotateY(90deg) translateZ(20px);
+    }
+
+    .faceLeft {
+        transform: rotateY(-90deg) translateZ(20px);
+    }
+
+    .faceTop {
+        transform: rotateX(90deg) translateZ(20px);
+    }
+
+    .faceBottom {
+        transform: rotateX(-90deg) translateZ(20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .ctaButton {
+        padding: 12px 30px;
+        font-size: 1rem;
     }
 }
