@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Outfit, Fredoka } from "next/font/google"; // Fredoka is great for kids sites
+import { Outfit, Fredoka, Noto_Sans_Devanagari } from "next/font/google"; // Fredoka is great for kids sites
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -16,9 +17,15 @@ const fredoka = Fredoka({
   display: "swap",
 });
 
+const notoSansDevanagari = Noto_Sans_Devanagari({
+  subsets: ["devanagari"],
+  variable: "--font-devanagari",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Kidzena - Kindergarten & Preschool",
-  description: "A fun and safe environment for your child's growth. Join us at Kidzena!",
+  title: "Sunrays Pre School",
+  description: "A fun and safe environment for your child's growth. Join us at Sunrays Pre School!",
 };
 
 
@@ -30,7 +37,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${fredoka.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${outfit.variable} ${fredoka.variable} ${notoSansDevanagari.variable} antialiased`} suppressHydrationWarning>
+        <ScrollToTop />
         <Header />
         <main>{children}</main>
         <Footer />

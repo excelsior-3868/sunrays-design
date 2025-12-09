@@ -15,14 +15,15 @@ export default function Features() {
                         className={`${styles.card} ${styles.blue}`}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -10 }}
+                        transition={{ type: "spring", stiffness: 300 }}
                         viewport={{ once: true }}
                     >
                         <Send size={48} className={styles.icon} />
                         <h3 className={styles.title}>Building Imagination</h3>
                         <p className={styles.text}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+                            Encouraging creative play to foster innovative thinking and problem-solving skills in young minds.
                         </p>
-                        <Link href="#" className={styles.link}>Learn More <ArrowRight size={18} /></Link>
                     </motion.div>
 
                     {/* Red Card */}
@@ -30,15 +31,15 @@ export default function Features() {
                         className={`${styles.card} ${styles.red}`}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -10 }}
+                        transition={{ type: "spring", stiffness: 300, delay: 0.1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
                     >
                         <Brain size={48} className={styles.icon} />
                         <h3 className={styles.title}>Growing Cognitive</h3>
                         <p className={styles.text}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+                            Providing stimulating activities that engage memory, attention, and reasoning for intellectual growth.
                         </p>
-                        <Link href="#" className={styles.link}>Learn More <ArrowRight size={18} /></Link>
                     </motion.div>
 
                     {/* Yellow Card */}
@@ -46,15 +47,15 @@ export default function Features() {
                         className={`${styles.card} ${styles.yellow}`}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -10 }}
+                        transition={{ type: "spring", stiffness: 300, delay: 0.2 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
                     >
                         <Lightbulb size={48} className={styles.icon} />
                         <h3 className={styles.title}>Increase Creativity</h3>
                         <p className={styles.text}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+                            Unlocking artistic expression and self-discovery through music, art, and storytelling.
                         </p>
-                        <Link href="#" className={styles.link}>Learn More <ArrowRight size={18} /></Link>
                     </motion.div>
                 </div>
             </div>

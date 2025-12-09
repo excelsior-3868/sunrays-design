@@ -1,8 +1,8 @@
 'use client';
 
 import styles from './about.module.css';
-import { Gamepad2, Rocket, BookOpen } from 'lucide-react';
 import Image from 'next/image';
+import FacilitiesSection from '@/components/FacilitiesSection';
 
 export default function AboutPage() {
     return (
@@ -35,14 +35,17 @@ export default function AboutPage() {
                         <div className={styles.textCol}>
                             <span className={styles.subtitle}>Learn About Us</span>
                             <h2 className={styles.sectionTitle}>
-                                Give the Children Space<br />to Grow a Creativity
+                                Give Children the Space to Learn,<br />Grow and Shine
                             </h2>
                             <p className={styles.description}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                                Our Sunrays Pre-school provides early childhood education and care for children. We help them develop various ranges of skills that make them ready to learn various activities. We are located at prime residential area of Kathmandu valley. Our Sunrays Pre-school ensures high quality education to children that are both accessible and affordable.
+                            </p>
+                            <p className={styles.description}>
+                                Your children will be safe, secured, loved and above all we are stimulated in an efficient, well maintained homely environment. We help them learn with confidence and develop skills to meet the challenges that lie ahead in the school system and beyond. We passionately believe this is going to be a joint effort between school management and parents. We promote the right environment for that partnership to succeed.
                             </p>
                             <div className={styles.signature}>
-                                <p className={styles.signatureText}>Margaret T.</p>
-                                <p className={styles.signatureRole}>Margaret T. - Headmaster</p>
+                                <p className={styles.signatureText}>Sunrays Team</p>
+                                <p className={styles.signatureRole}>Sunrays Pre-school</p>
                             </div>
                         </div>
                     </div>
@@ -55,13 +58,13 @@ export default function AboutPage() {
                     <span className={styles.sectionSubtitle}>Our Families</span>
                     <h2 className={styles.sectionHeading}>Parent Testimonial</h2>
                     <p className={styles.sectionDesc}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+                        Hear from our happy parents about their experience with Sunrays Pre-school and how their children have flourished in our care.
                     </p>
 
                     <div className={styles.testimonialGrid}>
                         <div className={styles.testimonialCard}>
                             <p className={styles.testimonialText}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+                                "Sunrays has been amazing for my son. The teachers are so caring and dedicated. I've seen such a positive change in his confidence and social skills since he started here."
                             </p>
                             <div className={styles.testimonialAuthor}>
                                 <div className={styles.avatar}></div>
@@ -74,7 +77,7 @@ export default function AboutPage() {
 
                         <div className={styles.testimonialCard}>
                             <p className={styles.testimonialText}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+                                "We love the play-based learning approach! The facilities are excellent, and the environment is safe and welcoming. Truly the best start for my daughter's education."
                             </p>
                             <div className={styles.testimonialAuthor}>
                                 <div className={styles.avatar}></div>
@@ -94,7 +97,7 @@ export default function AboutPage() {
                     <span className={styles.sectionSubtitle}>Our Teachers</span>
                     <h2 className={styles.sectionHeading}>Experienced Teacher</h2>
                     <p className={styles.sectionDesc}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+                        Meet our dedicated team of educators who are passionate about nurturing young minds and creating a fun, safe, and effective learning environment.
                     </p>
 
                     <div className={styles.teacherGrid}>
@@ -131,70 +134,8 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Complete Facilities Section */}
-            <section className={styles.facilitiesSection}>
-                <div className="container">
-                    <div className={styles.facilitiesGrid}>
-                        <div className={styles.facilitiesContent}>
-                            <span className={styles.sectionSubtitle}>Why Choose Us?</span>
-                            <h2 className={styles.sectionTitle}>Complete Facilities</h2>
-                            <p className={styles.facilitiesDesc}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo ligula eget dolor. Aenean massa.
-                            </p>
-
-                            <div className={styles.facilitiesList}>
-                                <div className={styles.facilityItem}>
-                                    <div className={styles.facilityIcon}>
-                                        <Gamepad2 size={32} />
-                                    </div>
-                                    <div>
-                                        <h3 className={styles.facilityTitle}>Playing Area</h3>
-                                        <p className={styles.facilityText}>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className={styles.facilityItem}>
-                                    <div className={styles.facilityIcon}>
-                                        <Rocket size={32} />
-                                    </div>
-                                    <div>
-                                        <h3 className={styles.facilityTitle}>Outbound Area</h3>
-                                        <p className={styles.facilityText}>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className={styles.facilityItem}>
-                                    <div className={styles.facilityIcon}>
-                                        <BookOpen size={32} />
-                                    </div>
-                                    <div>
-                                        <h3 className={styles.facilityTitle}>Reading Area</h3>
-                                        <p className={styles.facilityText}>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.facilitiesImage}>
-                            <div className={styles.facilitiesImageWrapper}>
-                                <Image
-                                    src="/facilities-kid.jpg"
-                                    alt="Child playing"
-                                    width={500}
-                                    height={600}
-                                    className={styles.facilityImg}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* Complete Facilities Section - Reused from Home Page */}
+            <FacilitiesSection />
         </div>
     );
 }

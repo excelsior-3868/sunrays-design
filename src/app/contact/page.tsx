@@ -68,7 +68,7 @@ export default function ContactPage() {
                         <div className={styles.contactInfo}>
                             <h2 className={styles.sectionTitle}>Get In Touch</h2>
                             <p className={styles.description}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+                                Have questions or want to learn more about our programs? We'd love to hear from you. Reach out to us using the contact details below or send us a message directly.
                             </p>
 
                             {/* Single Location Card */}

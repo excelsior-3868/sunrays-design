@@ -159,7 +159,8 @@
 
 .mobileMenu {
     position: fixed;
-    top: 80px; /* Header height approx */
+    top: 80px;
+    /* Header height approx */
     left: 0;
     right: 0;
     background: white;
@@ -225,14 +226,27 @@
         display: none;
     }
 
+    .logo {
+        font-size: 1.4rem;
+        /* Reduce size to prevent wrapping */
+        gap: 8px;
+    }
+
+    .logoImage {
+        width: 35px;
+        /* Slightly smaller logo image */
+        height: 35px;
+    }
+
     .contactBtn {
-        display: none; /* Hide button on mobile, show icon only or keep button? user usually prefers simpler header */
+        display: none;
+        /* Hide button on mobile, show icon only or keep button? user usually prefers simpler header */
     }
 
     .mobileToggle {
         display: block;
     }
-    
+
     /* Show contact button on tablet but maybe smaller */
     @media (min-width: 600px) {
         .contactBtn {

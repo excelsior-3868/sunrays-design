@@ -81,7 +81,7 @@ export default function ServicesSection({ showButton = true }: ServicesSectionPr
                 {showButton && (
                     <div className={styles.centerBtn}>
                         <Link href="/programs" className="btn btn-primary">
-                            See More Programs
+                            See More
                         </Link>
                     </div>
                 )}

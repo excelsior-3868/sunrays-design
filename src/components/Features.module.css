@@ -1,5 +1,5 @@
 .section {
-    padding: 80px 0;
+    padding: 80px 0 10px 0;
     position: relative;
     margin-top: -180px;
     /* Overlap with Hero wave for visual effect */
@@ -20,14 +20,15 @@
 }
 
 .card {
-    padding: 50px 40px;
+    padding: 30px 25px;
     border-radius: 20px;
     color: white;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .blue {
@@ -43,12 +44,12 @@
 }
 
 .icon {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
     color: white;
     font-weight: 700;
     position: relative;
@@ -70,6 +71,7 @@
     line-height: 1.6;
     margin-bottom: 25px;
     opacity: 0.9;
+    color: white;
 }
 
 .link {

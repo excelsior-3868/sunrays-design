@@ -1,13 +1,38 @@
 'use client';
 
 import styles from './Hero.module.css';
-import Link from 'next/link';
-
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+const heroImages = [
+    '/hero-1.jpg',
+    '/hero-2.jpg',
+    '/hero-3.jpg'
+];
+
 export default function Hero() {
+    const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % heroImages.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <section className={styles.hero}>
+            {/* Background Slideshow */}
+            <div className={styles.slideshow}>
+                {heroImages.map((src, index) => (
+                    <div
+                        key={index}
+                        className={`${styles.slide} ${index === currentImage ? styles.activeSlide : ''}`}
+                        style={{ backgroundImage: `url(${src})` }}
+                    ></div>
+                ))}
+            </div>
+
             <div className={styles.overlay}></div>
 
             {/* 3D Floating Blocks */}
@@ -15,7 +40,7 @@ export default function Hero() {
                 {/* Block A (Red) */}
                 <div className={`${styles.blockBox} ${styles.blockA}`}>
                     <div className={styles.cube}>
-                        <div className={`${styles.face} ${styles.faceFront}`} style={{ color: 'var(--color-primary)' }}>A</div>
+                        <div className={`${styles.face} ${styles.faceFront}`} style={{ color: 'var(--color-primary)', fontFamily: 'var(--font-devanagari)', fontWeight: 'bold' }}>क</div>
                         <div className={styles.face} style={{ transform: 'rotateY(180deg) translateZ(40px)' }}></div>
                         <div className={styles.face} style={{ transform: 'rotateY(90deg) translateZ(40px)', background: '#ffeeee' }}></div>
                         <div className={styles.face} style={{ transform: 'rotateY(-90deg) translateZ(40px)', background: '#ffeeee' }}></div>
@@ -27,7 +52,7 @@ export default function Hero() {
                 {/* Block X (Blue) */}
                 <div className={`${styles.blockBox} ${styles.blockX}`}>
                     <div className={styles.cube}>
-                        <div className={`${styles.face} ${styles.faceFront}`} style={{ color: 'var(--color-blue)' }}>X</div>
+                        <div className={`${styles.face} ${styles.faceFront}`} style={{ color: 'var(--color-blue)' }}>A</div>
                         <div className={styles.face} style={{ transform: 'rotateY(180deg) translateZ(40px)' }}></div>
                         <div className={styles.face} style={{ transform: 'rotateY(90deg) translateZ(40px)', background: '#eef6ff' }}></div>
                         <div className={styles.face} style={{ transform: 'rotateY(-90deg) translateZ(40px)', background: '#eef6ff' }}></div>
@@ -38,26 +63,18 @@ export default function Hero() {
             </div>
 
             <div className={styles.contentContainer}>
-                <motion.div
-                    className={styles.subtitle}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                >
-                    Welcome to Sunrays Pre School
-                </motion.div>
                 <motion.h1
                     className={styles.title}
-                    initial={{ x: -100, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+                    initial={{ opacity: 0, y: 20 }} // Changed animation to simple fade up
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                    Kids Playground<br />and Education.
+                    We identify your child's love language.
                 </motion.h1>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                 >
                     <a href="#enrollment" className={styles.ctaButton}>
                         Get Started

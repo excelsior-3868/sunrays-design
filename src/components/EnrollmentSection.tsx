@@ -59,7 +59,7 @@ export default function EnrollmentSection() {
                             <div>
                                 <h4 className={styles.contactLabel}>Call Us</h4>
                                 <p className={styles.contactText}>01-4282926</p>
-                                <p className={styles.contactTextSmall}>Sun-Fri: 9:00 AM - 4:00 PM</p>
+                                <p className={styles.contactTextSmall}>Sun-Fri: 9:00 AM - 2:45 PM</p>
                             </div>
                         </div>
 
@@ -78,11 +78,10 @@ export default function EnrollmentSection() {
                     <div className={styles.formWrapper}>
                         <form className={styles.form} onSubmit={handleSubmit}>
                             <div className={styles.formGroup}>
-                                <label className={styles.label}>Your Name</label>
                                 <input
                                     type="text"
                                     name="name"
-                                    placeholder="John Doe"
+                                    placeholder="Your Name"
                                     className={styles.input}
                                     value={formData.name}
                                     onChange={handleChange}
@@ -91,11 +90,10 @@ export default function EnrollmentSection() {
                             </div>
 
                             <div className={styles.formGroup}>
-                                <label className={styles.label}>Email Address</label>
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="john@example.com"
+                                    placeholder="Email Address"
                                     className={styles.input}
                                     value={formData.email}
                                     onChange={handleChange}
@@ -104,11 +102,10 @@ export default function EnrollmentSection() {
                             </div>
 
                             <div className={styles.formGroup}>
-                                <label className={styles.label}>Phone Number</label>
                                 <input
                                     type="tel"
                                     name="phone"
-                                    placeholder="+1 (555) 123-4567"
+                                    placeholder="Phone Number"
                                     className={styles.input}
                                     value={formData.phone}
                                     onChange={handleChange}
@@ -117,10 +114,9 @@ export default function EnrollmentSection() {
                             </div>
 
                             <div className={styles.formGroup}>
-                                <label className={styles.label}>Message</label>
                                 <textarea
                                     name="message"
-                                    placeholder="Tell us about your child and any questions you have..."
+                                    placeholder="Message"
                                     className={styles.textarea}
                                     value={formData.message}
                                     onChange={handleChange}

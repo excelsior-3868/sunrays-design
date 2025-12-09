@@ -1,7 +1,7 @@
 'use client';
 import styles from './Footer.module.css';
 import Link from 'next/link';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 
 export default function Footer() {
     return (
@@ -18,8 +18,22 @@ export default function Footer() {
                         Sunrays<span> Preschool</span>
                     </Link>
                     <p className={styles.description}>
-                        Sunrays Pre School offers a comprehensive curriculum, qualified teachers, and a safe learning environment.
+                        Sunrays Pre School offers a comprehensive curriculum, qualified teachers, and a safe learning environment for your child's holistic growth.
                     </p>
+                    <div className={styles.socials}>
+                        <a href="https://www.facebook.com/share/1Cu5owpEjK/" target="_blank" className={styles.socialIcon} aria-label="Facebook">
+                            <Facebook size={20} />
+                        </a>
+                        <a href="#" className={styles.socialIcon} aria-label="Instagram">
+                            <Instagram size={20} />
+                        </a>
+                        <a href="#" className={styles.socialIcon} aria-label="Twitter">
+                            <Twitter size={20} />
+                        </a>
+                        <a href="#" className={styles.socialIcon} aria-label="Youtube">
+                            <Youtube size={20} />
+                        </a>
+                    </div>
                 </div>
 
                 <div className={styles.column}>
@@ -28,6 +42,7 @@ export default function Footer() {
                         <li><Link href="/">Home</Link></li>
                         <li><Link href="/about">About Us</Link></li>
                         <li><Link href="/programs">Our Programs</Link></li>
+                        <li><Link href="/admissions">Admissions</Link></li>
                         <li><Link href="/contact">Contact</Link></li>
                     </ul>
                 </div>
@@ -35,9 +50,18 @@ export default function Footer() {
                 <div className={styles.column}>
                     <h4 className={styles.heading}>Contact Us</h4>
                     <div className={styles.contacts}>
-                        <p><MapPin size={20} color="var(--color-primary)" /> Purnadevi Marg, Dallu, Kathmandu-15</p>
-                        <p><Phone size={20} color="var(--color-blue)" /> 01-4282926</p>
-                        <p><Mail size={20} color="var(--color-yellow)" /> info.sunrayspreschool@gmail.com</p>
+                        <div className={styles.contactItem}>
+                            <MapPin size={20} className={styles.contactIcon} />
+                            <p>Purnadevi Marg, Dallu, Kathmandu-15</p>
+                        </div>
+                        <div className={styles.contactItem}>
+                            <Phone size={20} className={styles.contactIcon} />
+                            <p>01-4282926</p>
+                        </div>
+                        <div className={styles.contactItem}>
+                            <Mail size={20} className={styles.contactIcon} />
+                            <p>info.sunrayspreschool@gmail.com</p>
+                        </div>
                     </div>
                 </div>
             </div>

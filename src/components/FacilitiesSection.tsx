@@ -2,7 +2,7 @@
 
 import styles from './FacilitiesSection.module.css';
 import Image from 'next/image';
-import { Gamepad2, Rocket, BookOpen } from 'lucide-react';
+import { GraduationCap, School, Users, Utensils, ShieldCheck } from 'lucide-react';
 
 export default function FacilitiesSection() {
     return (
@@ -13,36 +13,56 @@ export default function FacilitiesSection() {
                         <span className={styles.subtitle}>Why Choose Us?</span>
                         <h2 className={styles.title}>Complete Facilities</h2>
                         <p className={styles.introDesc}>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                            We provide an environment designed to support every child’s growth, comfort, and happiness. Our facilities ensure a safe, nurturing, and engaging learning experience.
                         </p>
 
                         <div className={styles.item}>
                             <div className={styles.iconBox}>
-                                <Gamepad2 size={50} color="var(--color-blue)" />
+                                <GraduationCap size={40} color="var(--color-primary)" />
                             </div>
                             <div>
-                                <h3 className={styles.itemTitle}>Playing Area</h3>
-                                <p className={styles.itemDesc}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                                <h3 className={styles.itemTitle}>Quality Teaching</h3>
+                                <p className={styles.itemDesc}>Our skilled educators provide engaging lessons that build strong learning foundations.</p>
                             </div>
                         </div>
 
                         <div className={styles.item}>
                             <div className={styles.iconBox}>
-                                <Rocket size={50} color="var(--color-primary)" />
+                                <School size={40} color="var(--color-blue)" />
                             </div>
                             <div>
-                                <h3 className={styles.itemTitle}>Outbound Area</h3>
-                                <p className={styles.itemDesc}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                                <h3 className={styles.itemTitle}>Spacious Classrooms & Play Area</h3>
+                                <p className={styles.itemDesc}>Bright classrooms and wide play areas where children can learn and explore comfortably.</p>
                             </div>
                         </div>
 
                         <div className={styles.item}>
                             <div className={styles.iconBox}>
-                                <BookOpen size={50} color="var(--color-blue)" />
+                                <Users size={40} color="var(--color-yellow)" />
                             </div>
                             <div>
-                                <h3 className={styles.itemTitle}>Reading Area</h3>
-                                <p className={styles.itemDesc}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                                <h3 className={styles.itemTitle}>Experienced Teachers</h3>
+                                <p className={styles.itemDesc}>Caring, well-trained teachers dedicated to supporting every child’s growth.</p>
+                            </div>
+                        </div>
+
+                        <div className={styles.item}>
+                            <div className={styles.iconBox}>
+                                <Utensils size={40} color="var(--color-green)" />
+                            </div>
+                            <div>
+                                <h3 className={styles.itemTitle}>Nutritious Meals</h3>
+                                <p className={styles.itemDesc}>Healthy, balanced meals that fuel children’s energy and development.</p>
+                            </div>
+                        </div>
+
+                        <div className={styles.item}>
+                            <div className={styles.iconBox}>
+                                <ShieldCheck size={40} color="var(--color-primary)" />
+                            </div>
+                            <div>
+                                <h3 className={styles.itemTitle}>Safe & Well-Managed Environment</h3>
+                                <p className={styles.itemDesc}>A secure, clean, and well-supervised space where children can thrive.</p>
                             </div>
                         </div>
                     </div>

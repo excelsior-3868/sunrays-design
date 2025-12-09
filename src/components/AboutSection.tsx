@@ -7,11 +7,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function AboutSection() {
-    const features = [
-        "First & Reliable", "B2B Exchange",
-        "Tracking Service", "Transparent Pricing",
-        "Worldwide Service", "20/5 Support"
-    ];
 
     return (
         <section className={styles.section}>
@@ -44,18 +39,12 @@ export default function AboutSection() {
                         viewport={{ once: true }}
                     >
                         <span className={styles.subtitle}>About Us</span>
-                        <h2 className={styles.title}>Give the Children Space to Grow a Creativity</h2>
+                        <h2 className={styles.title}>Give Children the Space to Learn, Grow & Shine</h2>
                         <p className={styles.description}>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+                            About Our School: Our Sunrays Pre-school provides early childhood education and care for children. We help them develop various ranges of skills that make them ready to learn various activities. We are located at prime residential area of Kathmandu valley. Our Sunrays Pre-school ensures high quality education to children that are both accessible and affordable.
                         </p>
 
-                        <div className={styles.list}>
-                            {features.map((item, i) => (
-                                <div key={i} className={styles.listItem}>
-                                    <Check size={16} className={styles.checkIcon} /> {item}
-                                </div>
-                            ))}
-                        </div>
+
 
                         <Link href="/about" className="btn btn-primary">About Us</Link>
                     </motion.div>
