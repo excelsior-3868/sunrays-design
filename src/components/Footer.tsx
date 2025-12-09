@@ -15,10 +15,10 @@ export default function Footer() {
             <div className={`container ${styles.container}`}>
                 <div className={styles.column}>
                     <Link href="/" className={styles.logo}>
-                        Kidz<span>ena</span>
+                        Sunrays<span> Preschool</span>
                     </Link>
                     <p className={styles.description}>
-                        Kidzena offers a comprehensive curriculum, qualified teachers, and a safe learning environment.
+                        Sunrays Pre School offers a comprehensive curriculum, qualified teachers, and a safe learning environment.
                     </p>
                 </div>
 
@@ -27,7 +27,7 @@ export default function Footer() {
                     <ul className={styles.links}>
                         <li><Link href="/">Home</Link></li>
                         <li><Link href="/about">About Us</Link></li>
-                        <li><Link href="/classes">Our Classes</Link></li>
+                        <li><Link href="/programs">Our Programs</Link></li>
                         <li><Link href="/contact">Contact</Link></li>
                     </ul>
                 </div>
@@ -35,15 +35,15 @@ export default function Footer() {
                 <div className={styles.column}>
                     <h4 className={styles.heading}>Contact Us</h4>
                     <div className={styles.contacts}>
-                        <p><MapPin size={20} color="var(--color-primary)" /> 123 Education Lane, Kid City</p>
-                        <p><Phone size={20} color="var(--color-secondary)" /> +1 234 567 890</p>
-                        <p><Mail size={20} color="var(--color-accent)" /> hello@kidzena.com</p>
+                        <p><MapPin size={20} color="var(--color-primary)" /> Purnadevi Marg, Dallu, Kathmandu-15</p>
+                        <p><Phone size={20} color="var(--color-blue)" /> 01-4282926</p>
+                        <p><Mail size={20} color="var(--color-yellow)" /> info.sunrayspreschool@gmail.com</p>
                     </div>
                 </div>
             </div>
 
             <div className={`container ${styles.bottom}`}>
-                <p>&copy; {new Date().getFullYear()} Kidzena. All Rights Reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Sunrays Pre School. All Rights Reserved.</p>
             </div>
         </footer>
     );

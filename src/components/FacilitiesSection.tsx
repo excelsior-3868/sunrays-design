@@ -50,7 +50,7 @@ export default function FacilitiesSection() {
                     <div className={styles.right}>
                         <div className={styles.blobBack}></div>
                         <Image
-                            src="https://images.unsplash.com/photo-1502781252888-9143ba7f323b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                             alt="Child playing"
                             width={600}
                             height={600}

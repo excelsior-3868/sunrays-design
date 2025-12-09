@@ -1,6 +1,7 @@
 'use client';
 
 import styles from './Hero.module.css';
+import Link from 'next/link';
 
 import { motion } from 'framer-motion';
 
@@ -53,14 +54,15 @@ export default function Hero() {
                 >
                     Kids Playground<br />and Education.
                 </motion.h1>
-                <motion.button
-                    className={styles.ctaButton}
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
                 >
-                    Getting Started
-                </motion.button>
+                    <a href="#enrollment" className={styles.ctaButton}>
+                        Get Started
+                    </a>
+                </motion.div>
             </div>
 
             {/* White Wave SVG at bottom */}

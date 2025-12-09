@@ -72,6 +72,7 @@
 }
 
 .ctaButton {
+    display: inline-block;
     background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
     color: white;
     border: none;

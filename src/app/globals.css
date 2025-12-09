@@ -48,12 +48,21 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--color-text);
   background: var(--color-white);
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+main {
+  padding-top: 80px;
+  /* Account for fixed header height */
 }
 
 h1,

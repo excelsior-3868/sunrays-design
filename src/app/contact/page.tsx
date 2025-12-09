@@ -11,11 +11,34 @@ export default function ContactPage() {
         phone: '',
         message: ''
     });
+    const [loading, setLoading] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        // Add form submission logic here
+        setLoading(true);
+        setSubmitStatus(null);
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || 'Failed to submit form');
+            }
+
+            setSubmitStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
+            setFormData({ name: '', email: '', phone: '', message: '' });
+        } catch (err: any) {
+            setSubmitStatus({ type: 'error', message: err.message || 'Failed to send message. Please try again.' });
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -57,15 +80,15 @@ export default function ContactPage() {
                                 <div className={styles.locationDetails}>
                                     <p className={styles.locationItem}>
                                         <span className={styles.locationLabel}>📍</span>
-                                        Kathmandu, Nepal
+                                        Purnadevi Marg, Dallu, Kathmandu-15
                                     </p>
                                     <p className={styles.locationItem}>
                                         <Phone size={16} className={styles.icon} />
-                                        +977 1 234 5678
+                                        01-4282926
                                     </p>
                                     <p className={styles.locationItem}>
                                         <Mail size={16} className={styles.icon} />
-                                        contact@sunrays.edu.np
+                                        info.sunrayspreschool@gmail.com
                                     </p>
                                 </div>
                             </div>
@@ -74,7 +97,7 @@ export default function ContactPage() {
                             <div className={styles.socialSection}>
                                 <h3 className={styles.socialTitle}>Follow Us</h3>
                                 <div className={styles.socialIcons}>
-                                    <a href="#" className={styles.socialIcon}>
+                                    <a href="https://www.facebook.com/share/1Cu5owpEjK/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                                         <Facebook size={20} />
                                     </a>
                                     <a href="#" className={styles.socialIcon}>
@@ -140,8 +163,14 @@ export default function ContactPage() {
                                     ></textarea>
                                 </div>
 
-                                <button type="submit" className={styles.submitButton}>
-                                    Send Message
+                                {submitStatus && (
+                                    <div className={`${styles.statusMessage} ${submitStatus.type === 'success' ? styles.success : styles.error}`}>
+                                        {submitStatus.message}
+                                    </div>
+                                )}
+
+                                <button type="submit" className={styles.submitButton} disabled={loading}>
+                                    {loading ? 'Sending...' : 'Send Message'}
                                 </button>
                             </form>
                         </div>

@@ -1,0 +1,195 @@
+.hero {
+    height: 400px;
+    background-color: var(--color-primary);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -80px;
+    /* Offset for fixed header */
+    padding-top: 80px;
+}
+
+.heroTitle {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.waveBottom {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.waveSvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.mainContent {
+    padding: 60px 0;
+    /* Reduced padding to minimize gap */
+    background-color: var(--color-white);
+    /* Changed to white to match wave */
+}
+
+.programList {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.programBlock {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.programBlock:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.programInfo {
+    flex: 1;
+}
+
+.programHeader {
+    margin-bottom: 20px;
+}
+
+.ageTag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+}
+
+.programTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+}
+
+.programDesc {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.featuresList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.checkIcon {
+    color: var(--color-green);
+    flex-shrink: 0;
+}
+
+/* Color Themes */
+.themeRed .ageTag {
+    background-color: var(--color-primary);
+}
+
+.themeRed .programTitle {
+    color: var(--color-primary);
+}
+
+.themePurple .ageTag {
+    background-color: #9C27B0;
+}
+
+.themePurple .programTitle {
+    color: #9C27B0;
+}
+
+.themeBlue .ageTag {
+    background-color: var(--color-blue);
+}
+
+.themeBlue .programTitle {
+    color: var(--color-blue);
+}
+
+.themeGreen .ageTag {
+    background-color: var(--color-green);
+}
+
+.themeGreen .programTitle {
+    color: var(--color-green);
+}
+
+/* Decorative Side (since images are removed, use colorful abstract blocks or keep it text heavy) */
+.programVisual {
+    flex: 1;
+    height: 300px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    font-weight: 800;
+    color: white;
+    font-family: var(--font-heading);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.themeRed .programVisual {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+}
+
+.themePurple .programVisual {
+    background: linear-gradient(135deg, #AB47BC, #7B1FA2);
+}
+
+.themeBlue .programVisual {
+    background: linear-gradient(135deg, #42A5F5, #1E88E5);
+}
+
+.themeGreen .programVisual {
+    background: linear-gradient(135deg, #66BB6A, #43A047);
+}
+
+@media (max-width: 900px) {
+    .programBlock {
+        flex-direction: column !important;
+        /* Stack vertically on mobile */
+        text-align: left;
+    }
+
+    .programVisual {
+        width: 100%;
+        height: 200px;
+    }
+}
