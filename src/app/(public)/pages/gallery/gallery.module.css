@@ -1,0 +1,144 @@
+/* Gallery Listing Page */
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    height: 400px;
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -80px;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroContent {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.heroTitle {
+    color: white;
+    /* Explicitly set color */
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-heading);
+    z-index: 10;
+}
+
+.waveBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+
+}
+
+.waveSvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+
+/* Gallery Grid Section */
+.gallerySection {
+    padding: 80px 0;
+    background-color: #fff;
+    min-height: 600px;
+}
+
+.albumsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.albumCard {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.albumCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.cardImageWrapper {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.albumCard:hover .cardImage {
+    transform: scale(1.05);
+}
+
+.cardContent {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-dark);
+    font-family: var(--font-heading);
+    line-height: 1.3;
+}
+
+.cardMeta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2.5rem;
+    }
+
+    .albumsGrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
