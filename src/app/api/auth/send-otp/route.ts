@@ -19,8 +19,23 @@ export async function POST(request: NextRequest) {
 
         await dbConnect();
 
+        const normalizedEmail = email.toLowerCase();
+
+        // Allowed Admin Emails
+        const ALLOWED_EMAILS = [
+            'subin.bajra@gmail.com',
+            'info.sunrayspreschool@gmail.com'
+        ];
+
+        if (!ALLOWED_EMAILS.includes(normalizedEmail)) {
+            return NextResponse.json(
+                { error: 'You are Unauthorised' },
+                { status: 403 }
+            );
+        }
+
         // Check if user exists
-        const user = await AdminUser.findOne({ email: email.toLowerCase() });
+        const user = await AdminUser.findOne({ email: normalizedEmail });
 
         if (!user) {
             return NextResponse.json(
@@ -41,7 +56,7 @@ export async function POST(request: NextRequest) {
 
         // Generate and store OTP
         const otp = generateOTP();
-        const stored = await storeOTP(email, otp);
+        const stored = await storeOTP(normalizedEmail, otp);
 
         if (!stored) {
             return NextResponse.json(

@@ -7,8 +7,9 @@ export const runtime = 'nodejs';
 export async function POST(request: NextRequest) {
     try {
         const { email, otp } = await request.json();
+        const normalizedEmail = email?.toLowerCase();
 
-        if (!email || !otp) {
+        if (!normalizedEmail || !otp) {
             return NextResponse.json(
                 { error: 'Email and OTP are required' },
                 { status: 400 }
@@ -16,7 +17,7 @@ export async function POST(request: NextRequest) {
         }
 
         // Verify OTP
-        const isValid = await verifyOTP(email, otp);
+        const isValid = await verifyOTP(normalizedEmail, otp);
 
         if (!isValid) {
             return NextResponse.json(
@@ -28,7 +29,7 @@ export async function POST(request: NextRequest) {
         // OTP is valid, sign in the user
         try {
             await signIn('credentials', {
-                email,
+                email: normalizedEmail,
                 redirect: false,
             });
 

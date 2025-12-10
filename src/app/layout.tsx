@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Outfit, Fredoka, Noto_Sans_Devanagari } from "next/font/google"; // Fredoka is great for kids sites
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -28,8 +26,6 @@ export const metadata: Metadata = {
   description: "A fun and safe environment for your child's growth. Join us at Sunrays Pre School!",
 };
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,10 +34,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.variable} ${fredoka.variable} ${notoSansDevanagari.variable} antialiased`} suppressHydrationWarning>
-        <ScrollToTop />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        {children}
+        <Analytics />
       </body>
     </html>
   );

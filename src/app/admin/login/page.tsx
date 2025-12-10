@@ -171,13 +171,6 @@ export default function AdminLoginPage() {
                     <form onSubmit={handleVerifyOTP} className={styles.form}>
                         <div className={styles.otpInfo}>
                             <p>OTP sent to <strong>{email}</strong></p>
-                            <button
-                                type="button"
-                                onClick={() => setStep('email')}
-                                className={styles.changeEmail}
-                            >
-                                Change email
-                            </button>
                         </div>
 
                         <div className={styles.formGroup}>
@@ -216,8 +209,16 @@ export default function AdminLoginPage() {
                             type="submit"
                             className={styles.button}
                             disabled={loading || otp.length !== 6}
+                            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}
                         >
-                            {loading ? 'Verifying...' : 'Verify & Login'}
+                            {loading ? (
+                                <>
+                                    <span className={styles.loader}></span>
+                                    Verifying...
+                                </>
+                            ) : (
+                                'Verify & Login'
+                            )}
                         </button>
 
                         <button

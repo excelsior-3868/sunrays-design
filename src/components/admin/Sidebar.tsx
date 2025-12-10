@@ -37,7 +37,8 @@ export default function AdminSidebar() {
     return (
         <aside className={styles.sidebar}>
             <div className={styles.logo}>
-                <h2>🎓 Sunrays CMS</h2>
+                <img src="/logo-sunrays.png" alt="Sunrays Logo" width={40} height={40} style={{ objectFit: 'contain' }} />
+                <h2>Sunrays CMS</h2>
             </div>
 
             <nav className={styles.nav}>
@@ -56,12 +57,12 @@ export default function AdminSidebar() {
                         </Link>
                     );
                 })}
-            </nav>
 
-            <button onClick={handleLogout} className={styles.logoutButton}>
-                <LogOut size={20} />
-                <span>Logout</span>
-            </button>
+                <button onClick={handleLogout} className={styles.navItem} style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
+                    <LogOut size={20} />
+                    <span>Logout</span>
+                </button>
+            </nav>
         </aside>
     );
 }

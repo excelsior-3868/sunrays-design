@@ -7,6 +7,7 @@ import BlogPost from '@/lib/models/BlogPost';
 import FAQ from '@/lib/models/FAQ';
 import Page from '@/lib/models/Page';
 import styles from './dashboard.module.css';
+import LogoutButton from '@/components/admin/LogoutButton';
 
 export default async function AdminDashboard() {
     const session = await auth();
@@ -37,7 +38,10 @@ export default async function AdminDashboard() {
         <div className={styles.dashboard}>
             <div className={styles.header}>
                 <h1>Dashboard</h1>
-                <p>Welcome back, {session?.user?.name || 'Admin'}!</p>
+                <div className={styles.userInfo}>
+                    <p>Welcome back, <strong>{session?.user?.name || 'Admin'}</strong>!</p>
+                    <LogoutButton />
+                </div>
             </div>
 
             <div className={styles.statsGrid}>

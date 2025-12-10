@@ -71,12 +71,12 @@ export default function Header() {
                         onMouseEnter={() => setShowPagesDropdown(true)}
                         onMouseLeave={() => setShowPagesDropdown(false)}
                     >
-                        <Link
-                            href="/pages"
+                        <span
                             className={`${styles.link} ${styles.hasDropdown} ${isParentActive('/pages') ? styles.active : ''}`}
+                            style={{ cursor: 'default' }}
                         >
                             Pages <ChevronDown size={16} />
-                        </Link>
+                        </span>
                         {showPagesDropdown && (
                             <div className={styles.dropdownMenu}>
                                 <Link href="/pages/gallery" className={styles.dropdownItem}>Gallery</Link>

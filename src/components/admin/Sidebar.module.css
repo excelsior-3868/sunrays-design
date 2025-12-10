@@ -12,14 +12,18 @@
 }
 
 .logo {
-    padding: 30px 20px;
+    padding: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .logo h2 {
     margin: 0;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
+    color: #ffffff;
 }
 
 .nav {
@@ -54,26 +58,7 @@
     flex-shrink: 0;
 }
 
-.logoutButton {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 20px;
-    background: rgba(239, 68, 68, 0.1);
-    color: #fca5a5;
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-    font-size: 14px;
-    font-weight: 600;
-}
 
-.logoutButton:hover {
-    background: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
-}
 
 @media (max-width: 768px) {
     .sidebar {
