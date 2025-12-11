@@ -86,7 +86,7 @@ async function getAlbumCoverImage(folderId: string): Promise<string | undefined>
         const file = response.data.files?.[0];
         // Use a high-res thumbnail if possible, or webContentLink. 
         // thumbnailLink usually ends with =s220. We can replace it with =s1000 for higher res.
-        return file?.thumbnailLink?.replace('=s220', '=s800') || file?.webContentLink;
+        return file?.thumbnailLink?.replace('=s220', '=s800') || file?.webContentLink || undefined;
     } catch (error) {
         console.warn(`Could not fetch cover for folder ${folderId}`, error);
         return undefined;
