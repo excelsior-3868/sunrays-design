@@ -2,6 +2,7 @@
 
 import styles from './FacilitiesSection.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 import { GraduationCap, School, Users, Utensils, ShieldCheck } from 'lucide-react';
 
 export default function FacilitiesSection() {
@@ -65,7 +66,15 @@ export default function FacilitiesSection() {
                                 <p className={styles.itemDesc}>A secure, clean, and well-supervised space where children can thrive.</p>
                             </div>
                         </div>
+
+                        {/* See More Button */}
+                        <div className={styles.buttonWrapper}>
+                            <Link href="/why-choose-us" className="btn btn-primary">
+                                See More
+                            </Link>
+                        </div>
                     </div>
+
 
                     <div className={styles.right}>
                         <div className={styles.blobBack}></div>

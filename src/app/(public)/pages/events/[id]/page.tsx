@@ -15,17 +15,54 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { id } = await params;
     await dbConnect();
+
+    // Handle potential invalid ID format gracefully
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+        return {
+            title: 'Event Not Found',
+            description: 'The requested event could not be found.'
+        };
+    }
+
     const event = await Event.findById(id).lean();
 
     if (!event || event.status !== 'published') {
         return {
             title: 'Event Not Found',
+            description: 'The requested event could not be found.'
         };
     }
 
+    const eventDate = new Date(event.date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
     return {
-        title: `${event.title} | Sunrays Pre School`,
-        description: event.description.substring(0, 160),
+        title: event.title,
+        description: `${event.description.substring(0, 150)}... Join us on ${eventDate} at ${event.location}`,
+        keywords: ['preschool event', 'children activity', event.title, 'Sunrays Pre School', 'Kathmandu'],
+        openGraph: {
+            title: event.title,
+            description: event.description.substring(0, 160),
+            images: event.imageUrl ? [
+                {
+                    url: event.imageUrl,
+                    width: 1200,
+                    height: 630,
+                    alt: event.title,
+                }
+            ] : ['/sunrays-logo.png'],
+            type: 'article',
+            siteName: 'Sunrays Pre School',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: event.title,
+            description: event.description.substring(0, 160),
+            images: event.imageUrl ? [event.imageUrl] : ['/sunrays-logo.png'],
+        },
     };
 }
 

@@ -18,18 +18,47 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     // Handle potential invalid ID format gracefully
     if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-        return { title: 'Post Not Found' };
+        return {
+            title: 'Post Not Found',
+            description: 'The requested blog post could not be found.'
+        };
     }
 
     const post = await BlogPost.findById(id).lean();
 
     if (!post || post.status !== 'published') {
-        return { title: 'Post Not Found' };
+        return {
+            title: 'Post Not Found',
+            description: 'The requested blog post could not be found.'
+        };
     }
 
     return {
-        title: `${post.title} | Sunrays Blog`,
-        description: post.excerpt,
+        title: post.title,
+        description: post.excerpt || post.content.substring(0, 160),
+        keywords: ['preschool', 'early education', 'Sunrays Pre School', 'blog', 'parenting'],
+        authors: [{ name: 'Sunrays Pre School' }],
+        openGraph: {
+            title: post.title,
+            description: post.excerpt || post.content.substring(0, 160),
+            images: post.imageUrl ? [
+                {
+                    url: post.imageUrl,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                }
+            ] : ['/sunrays-logo.png'],
+            type: 'article',
+            publishedTime: post.publishedAt || post.createdAt,
+            siteName: 'Sunrays Pre School',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt || post.content.substring(0, 160),
+            images: post.imageUrl ? [post.imageUrl] : ['/sunrays-logo.png'],
+        },
     };
 }
 

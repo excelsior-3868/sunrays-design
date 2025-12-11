@@ -6,8 +6,15 @@ import dbConnect from '@/lib/db';
 import BlogPost from '@/lib/models/BlogPost';
 
 export const metadata: Metadata = {
-    title: 'Blog & News | Sunrays Pre School',
-    description: 'Latest news, updates, and articles from Sunrays Pre School',
+    title: 'Blog & News',
+    description: 'Read the latest news, parenting tips, educational insights, and updates from Sunrays Pre School. Stay informed about early childhood education and our school community.',
+    keywords: ['preschool blog', 'parenting tips', 'early education', 'child development', 'school news', 'educational articles'],
+    openGraph: {
+        title: 'Blog & News | Sunrays Pre School',
+        description: 'Latest news, updates, and educational articles from Sunrays Pre School',
+        images: ['/sunrays-logo.png'],
+        type: 'website',
+    },
 };
 
 export const dynamic = 'force-dynamic';

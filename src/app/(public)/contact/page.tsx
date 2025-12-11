@@ -175,6 +175,19 @@ export default function ContactPage() {
                             </form>
                         </div>
                     </div>
+
+                    {/* Map Section */}
+                    <div className={styles.mapSection}>
+                        <div className={styles.mapContainer}>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.213931486824!2d85.29338779999999!3d27.7106803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb185dd9ba0c59%3A0x724f43e95354e155!2sSun%20Rays%20Pre-School!5e0!3m2!1sen!2snp!4v1765472810985!5m2!1sen!2snp"
+                                className={styles.mapFrame}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

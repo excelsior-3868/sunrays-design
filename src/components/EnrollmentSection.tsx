@@ -12,6 +12,8 @@ export default function EnrollmentSection() {
         message: ''
     });
 
+    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
             ...formData,
@@ -19,10 +21,34 @@ export default function EnrollmentSection() {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission
-        console.log('Form submitted:', formData);
+        setStatus('submitting');
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || 'Failed to submit form');
+            }
+
+            console.log('Form submitted successfully:', data);
+            setStatus('success');
+            setFormData({ name: '', email: '', phone: '', message: '' });
+
+            // Reset success message after 3 seconds
+            setTimeout(() => setStatus('idle'), 3000);
+        } catch (error) {
+            console.error('Submission error:', error);
+            setStatus('error'); // You might want to handle error state display in UI
+            setTimeout(() => setStatus('idle'), 3000);
+        }
     };
 
     return (
@@ -86,6 +112,7 @@ export default function EnrollmentSection() {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
+                                    disabled={status === 'submitting'}
                                 />
                             </div>
 
@@ -98,6 +125,7 @@ export default function EnrollmentSection() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
+                                    disabled={status === 'submitting'}
                                 />
                             </div>
 
@@ -110,6 +138,7 @@ export default function EnrollmentSection() {
                                     value={formData.phone}
                                     onChange={handleChange}
                                     required
+                                    disabled={status === 'submitting'}
                                 />
                             </div>
 
@@ -122,11 +151,18 @@ export default function EnrollmentSection() {
                                     onChange={handleChange}
                                     rows={5}
                                     required
+                                    disabled={status === 'submitting'}
                                 />
                             </div>
 
-                            <button type="submit" className={styles.submitBtn}>
-                                Send Message
+                            <button
+                                type="submit"
+                                className={`${styles.submitBtn} ${status === 'success' ? 'bg-green-500' : ''} ${status === 'error' ? 'bg-red-500' : ''}`}
+                                disabled={status === 'submitting'}
+                            >
+                                {status === 'submitting' ? 'Sending...' :
+                                    status === 'success' ? 'Message Sent!' :
+                                        status === 'error' ? 'Failed! Try Again' : 'Send Message'}
                             </button>
                         </form>
                     </div>

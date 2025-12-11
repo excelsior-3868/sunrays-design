@@ -1,13 +1,19 @@
 import { Metadata } from 'next';
 import styles from './events.module.css';
 import { Calendar, MapPin, ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 import dbConnect from '@/lib/db';
 import Event from '@/lib/models/Event';
 
 export const metadata: Metadata = {
-    title: 'Events & Activities | Sunrays Pre School',
-    description: 'Upcoming events and activities at Sunrays Pre School',
+    title: 'Events & Activities',
+    description: 'Discover upcoming events, special activities, and celebrations at Sunrays Pre School. From educational programs to festive celebrations, stay updated with all our exciting happenings.',
+    keywords: ['preschool events', 'children activities', 'school celebrations', 'educational programs', 'Kathmandu events', 'kids activities'],
+    openGraph: {
+        title: 'Events & Activities | Sunrays Pre School',
+        description: 'Stay updated with upcoming events and activities at Sunrays Pre School',
+        images: ['/sunrays-logo.png'],
+        type: 'website',
+    },
 };
 
 export const dynamic = 'force-dynamic';
@@ -68,9 +74,8 @@ export default async function EventsPage() {
                                 const color = colors[index % colors.length];
 
                                 return (
-                                    <Link
+                                    <div
                                         key={event._id}
-                                        href={`/events/${event._id}`}
                                         className={styles.eventCard}
                                         style={{ borderColor: color } as any}
                                     >
@@ -89,8 +94,7 @@ export default async function EventsPage() {
                                         <div className={styles.eventContent}>
                                             <h3>{event.title}</h3>
                                             <p className={styles.description}>
-                                                {event.description.substring(0, 140)}
-                                                {event.description.length > 140 && '...'}
+                                                {event.description}
                                             </p>
 
                                             {event.location && (
@@ -100,7 +104,7 @@ export default async function EventsPage() {
                                                 </div>
                                             )}
                                         </div>
-                                    </Link>
+                                    </div>
                                 );
                             })}
                         </div>
@@ -117,9 +121,8 @@ export default async function EventsPage() {
                             <h2 className={styles.sectionTitle}>Past Events</h2>
                             <div className={styles.eventsGrid}>
                                 {pastEvents.map((event: any) => (
-                                    <Link
+                                    <div
                                         key={event._id}
-                                        href={`/events/${event._id}`}
                                         className={`${styles.eventCard} ${styles.pastEvent}`}
                                     >
                                         {event.imageUrl && (
@@ -130,8 +133,7 @@ export default async function EventsPage() {
                                         <div className={styles.eventContent}>
                                             <h3>{event.title}</h3>
                                             <p className={styles.description}>
-                                                {event.description.substring(0, 120)}
-                                                {event.description.length > 120 && '...'}
+                                                {event.description}
                                             </p>
                                             <div className={styles.eventMeta}>
                                                 <div className={styles.metaItem}>
@@ -144,7 +146,7 @@ export default async function EventsPage() {
                                                 </div>
                                             </div>
                                         </div>
-                                    </Link>
+                                    </div>
                                 ))}
                             </div>
                         </div>

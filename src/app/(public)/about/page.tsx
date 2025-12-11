@@ -9,7 +9,9 @@ export default function AboutPage() {
         <div className={styles.aboutPage}>
             {/* Hero Section */}
             <section className={styles.hero}>
-                <h1 className={styles.heroTitle}>About Us</h1>
+                <div className={styles.heroContent}>
+                    <h1 className={styles.heroTitle}>About Us</h1>
+                </div>
                 <div className={styles.waveBottom}>
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className={styles.waveSvg}>
                         <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z" fill="#ffffff"></path>
@@ -69,8 +71,8 @@ export default function AboutPage() {
                             <div className={styles.testimonialAuthor}>
                                 <div className={styles.avatar}></div>
                                 <div>
-                                    <p className={styles.authorName}>Tyler Curtis</p>
-                                    <p className={styles.authorRole}>Entrepreneur</p>
+                                    <p className={styles.authorName}>Subin Bajracharya</p>
+                                    <p className={styles.authorRole}>Engineer</p>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +84,7 @@ export default function AboutPage() {
                             <div className={styles.testimonialAuthor}>
                                 <div className={styles.avatar}></div>
                                 <div>
-                                    <p className={styles.authorName}>Alexis Dunn</p>
+                                    <p className={styles.authorName}>Bibek Shrestha</p>
                                     <p className={styles.authorRole}>Designer</p>
                                 </div>
                             </div>
@@ -103,30 +105,51 @@ export default function AboutPage() {
                     <div className={styles.teacherGrid}>
                         <div className={`${styles.teacherCard} ${styles.teacherRed}`}>
                             <div className={styles.teacherImageWrapper}>
-                                <div className={styles.teacherImage}></div>
+                                <div
+                                    className={styles.teacherImage}
+                                    style={{
+                                        backgroundImage: `url('/principal.jpg')`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center'
+                                    }}
+                                ></div>
                             </div>
                             <div className={styles.teacherInfo}>
-                                <h3 className={styles.teacherName}>Edward Price</h3>
-                                <p className={styles.teacherRole}>Teacher</p>
+                                <h3 className={styles.teacherName}>Manahera Majarjan</h3>
+                                <p className={styles.teacherRole}>Principal</p>
                             </div>
                         </div>
 
                         <div className={`${styles.teacherCard} ${styles.teacherBlue}`}>
                             <div className={styles.teacherImageWrapper}>
-                                <div className={styles.teacherImage}></div>
+                                <div
+                                    className={styles.teacherImage}
+                                    style={{
+                                        backgroundImage: `url('/teacher-shova.jpg')`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center'
+                                    }}
+                                ></div>
                             </div>
                             <div className={styles.teacherInfo}>
-                                <h3 className={styles.teacherName}>Edgar Warren</h3>
+                                <h3 className={styles.teacherName}>Shova Maharjan Prajapati</h3>
                                 <p className={styles.teacherRole}>Teacher</p>
                             </div>
                         </div>
 
                         <div className={`${styles.teacherCard} ${styles.teacherYellow}`}>
                             <div className={styles.teacherImageWrapper}>
-                                <div className={styles.teacherImage}></div>
+                                <div
+                                    className={styles.teacherImage}
+                                    style={{
+                                        backgroundImage: `url('/teacher-supriya.jpg')`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center'
+                                    }}
+                                ></div>
                             </div>
                             <div className={styles.teacherInfo}>
-                                <h3 className={styles.teacherName}>Elise Wolf</h3>
+                                <h3 className={styles.teacherName}>Supriya Prajapati</h3>
                                 <p className={styles.teacherRole}>Teacher</p>
                             </div>
                         </div>

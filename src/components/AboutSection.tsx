@@ -46,7 +46,7 @@ export default function AboutSection() {
 
 
 
-                        <Link href="/about" className="btn btn-primary">About Us</Link>
+                        <Link href="/about" className="btn btn-primary">See More</Link>
                     </motion.div>
                 </div>
             </div>

@@ -1,35 +1,23 @@
-/* Gallery Listing Page */
-
-/* Hero Section */
 /* Hero Section */
 .hero {
-    height: 400px;
-    background-color: var(--color-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -80px;
-    padding-top: 80px;
+    height: 300px;
+    background: linear-gradient(135deg, #FED049 0%, #FFC107 100%);
     position: relative;
-    overflow: hidden;
-}
-
-.heroContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -80px;
+    padding-top: 40px;
     text-align: center;
-    color: white;
-    z-index: 2;
-    padding: 0 20px;
 }
 
 .heroTitle {
     color: white;
-    /* Explicitly set color */
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 20px;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: var(--font-heading);
     z-index: 10;
+    font-family: var(--font-heading);
 }
 
 .waveBottom {
@@ -38,7 +26,7 @@
     left: 0;
     width: 100%;
     height: 120px;
-
+    z-index: 10;
 }
 
 .waveSvg {
@@ -47,98 +35,216 @@
     display: block;
 }
 
-
-
-/* Gallery Grid Section */
-.gallerySection {
-    padding: 80px 0;
-    background-color: #fff;
-    min-height: 600px;
+/* Main Content */
+.mainContent {
+    padding: 10px 0 100px;
+    background: #fff;
 }
 
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.subtitle {
+    color: var(--color-yellow);
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.description {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Empty State */
+.emptyState {
+    text-align: center;
+    padding: 100px 20px;
+    background: #f9fafb;
+    border-radius: 24px;
+    border: 2px dashed #e5e7eb;
+}
+
+.emptyIcon {
+    width: 64px;
+    height: 64px;
+    color: #d1d5db;
+    margin: 0 auto 20px;
+}
+
+.emptyTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.emptyText {
+    color: #9ca3af;
+}
+
+.error {
+    text-align: center;
+    padding: 100px 20px;
+    background: #fee2e2;
+    border-radius: 24px;
+    border: 2px solid #fca5a5;
+}
+
+.error h2 {
+    color: #dc2626;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.error p {
+    color: #991b1b;
+}
+
+.loading {
+    text-align: center;
+    padding: 100px 20px;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Albums Grid */
 .albumsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 40px;
 }
 
 .albumCard {
     background: white;
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: inherit;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
     height: 100%;
+    border: 1px solid #f0f0f0;
 }
 
 .albumCard:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
 }
 
-.cardImageWrapper {
-    height: 250px;
-    overflow: hidden;
+.imageContainer {
     position: relative;
-    background-color: #f0f0f0;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
 }
 
-.cardImage {
+.albumImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
-.albumCard:hover .cardImage {
-    transform: scale(1.05);
+.albumCard:hover .albumImage {
+    transform: scale(1.1);
+}
+
+.placeholderImage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.placeholderIcon {
+    width: 80px;
+    height: 80px;
+    color: #ccc;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.albumCard:hover .overlay {
+    opacity: 1;
 }
 
 .cardContent {
-    padding: 25px;
+    padding: 30px;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.cardTitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--color-dark);
+.albumTitle {
     font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-dark);
+    margin-bottom: 12px;
     line-height: 1.3;
+    transition: color 0.3s ease;
 }
 
-.cardMeta {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-top: auto;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
+.albumCard:hover .albumTitle {
+    color: var(--color-primary);
+}
+
+.albumDesc {
     color: #666;
-    font-size: 0.9rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.metaItem {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+.albumDate {
+    color: #999;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .heroTitle {
         font-size: 2.5rem;
     }
 
     .albumsGrid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .albumsGrid {
+        grid-template-columns: 1fr;
     }
 }
