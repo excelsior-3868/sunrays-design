@@ -1,66 +1,76 @@
-'use client';
-
+import { Metadata } from 'next';
 import styles from './why-choose-us.module.css';
 import { GraduationCap, Home, Users, Utensils, Shield, Heart, Stethoscope, MessageCircle, Book } from 'lucide-react';
 
-export default function WhyChooseUsPage() {
-    const features = [
-        {
-            icon: GraduationCap,
-            title: "Quality Teaching",
-            description: "Our skilled educators provide engaging, interactive lessons that build strong learning foundations. We use innovative teaching methods that make learning fun and effective, ensuring every child develops a love for education.",
-            iconColor: "red"
-        },
-        {
-            icon: Home,
-            title: "Conducive Environment",
-            description: "We create a warm, welcoming atmosphere where children feel safe, comfortable, and excited to learn. Our environment is designed to stimulate curiosity, creativity, and positive social interactions among students.",
-            iconColor: "blue"
-        },
-        {
-            icon: Home,
-            title: "Spacious Classroom & Playground",
-            description: "Bright, airy classrooms and expansive play areas provide children with ample space to learn, explore, and play. Our facilities encourage both indoor learning activities and outdoor physical development in a safe, supervised setting.",
-            iconColor: "yellow"
-        },
-        {
-            icon: Users,
-            title: "Trained & Experienced Teachers",
-            description: "Our dedicated team of educators brings years of experience and professional training in early childhood education. They are passionate about nurturing young minds and committed to supporting every child's unique growth journey.",
-            iconColor: "green"
-        },
-        {
-            icon: Utensils,
-            title: "Well Balanced Nutritious Diet",
-            description: "We provide healthy, balanced meals carefully planned to fuel children's energy, growth, and development. Our nutritious menu includes fresh ingredients and caters to dietary requirements, ensuring every child receives proper nutrition.",
-            iconColor: "red"
-        },
-        {
-            icon: Shield,
-            title: "Well Managed Classrooms with Advanced Equipments",
-            description: "Our classrooms are equipped with modern educational tools and technology that enhance learning experiences. From smart boards to age-appropriate learning materials, we provide resources that make education engaging and effective.",
-            iconColor: "blue"
-        },
-        {
-            icon: Stethoscope,
-            title: "School Based Health Support",
-            description: "We maintain a comprehensive health and safety program with regular health check-ups, first aid facilities, and trained staff to handle medical situations. Your child's physical well-being is our priority throughout the school day.",
-            iconColor: "green"
-        },
-        {
-            icon: MessageCircle,
-            title: "Parents Interaction",
-            description: "We believe in strong parent-school partnerships and maintain open communication through regular meetings, progress reports, and events. Parents are actively involved in their child's educational journey, ensuring collaborative growth.",
-            iconColor: "yellow"
-        },
-        {
-            icon: Book,
-            title: "Nepali Culture and Driven Knowledge",
-            description: "While providing world-class education, we deeply value and integrate Nepali culture, traditions, and values into our curriculum. Children learn to appreciate their heritage while developing global perspectives and cultural awareness.",
-            iconColor: "red"
-        }
-    ];
+export const metadata: Metadata = {
+    title: 'Why Choose Us - Complete Facilities & Expert Care',
+    description: 'Discover why parents choose Sunrays Pre School: quality teaching, spacious classrooms, experienced teachers, nutritious meals, health support, and integration of Nepali culture.',
+    keywords: ['best preschool kathmandu', 'quality preschool', 'experienced teachers', 'preschool facilities', 'child nutrition', 'nepali culture education'],
+    openGraph: {
+        title: 'Why Choose Sunrays Pre School - Complete Facilities',
+        description: 'Quality teaching, experienced educators, spacious facilities, and comprehensive child care in Kathmandu.',
+        type: 'website',
+    },
+};
 
+const features = [
+    {
+        icon: GraduationCap,
+        title: "Quality Teaching",
+        description: "Our skilled educators provide engaging, interactive lessons that build strong learning foundations. We use innovative teaching methods that make learning fun and effective, ensuring every child develops a love for education.",
+        iconColor: "red"
+    },
+    {
+        icon: Home,
+        title: "Conducive Environment",
+        description: "We create a warm, welcoming atmosphere where children feel safe, comfortable, and excited to learn. Our environment is designed to stimulate curiosity, creativity, and positive social interactions among students.",
+        iconColor: "blue"
+    },
+    {
+        icon: Home,
+        title: "Spacious Classroom & Playground",
+        description: "Bright, airy classrooms and expansive play areas provide children with ample space to learn, explore, and play. Our facilities encourage both indoor learning activities and outdoor physical development in a safe, supervised setting.",
+        iconColor: "yellow"
+    },
+    {
+        icon: Users,
+        title: "Trained & Experienced Teachers",
+        description: "Our dedicated team of educators brings years of experience and professional training in early childhood education. They are passionate about nurturing young minds and committed to supporting every child's unique growth journey.",
+        iconColor: "green"
+    },
+    {
+        icon: Utensils,
+        title: "Well Balanced Nutritious Diet",
+        description: "We provide healthy, balanced meals carefully planned to fuel children's energy, growth, and development. Our nutritious menu includes fresh ingredients and caters to dietary requirements, ensuring every child receives proper nutrition.",
+        iconColor: "red"
+    },
+    {
+        icon: Shield,
+        title: "Well Managed Classrooms with Advanced Equipments",
+        description: "Our classrooms are equipped with modern educational tools and technology that enhance learning experiences. From smart boards to age-appropriate learning materials, we provide resources that make education engaging and effective.",
+        iconColor: "blue"
+    },
+    {
+        icon: Stethoscope,
+        title: "School Based Health Support",
+        description: "We maintain a comprehensive health and safety program with regular health check-ups, first aid facilities, and trained staff to handle medical situations. Your child's physical well-being is our priority throughout the school day.",
+        iconColor: "green"
+    },
+    {
+        icon: MessageCircle,
+        title: "Parents Interaction",
+        description: "We believe in strong parent-school partnerships and maintain open communication through regular meetings, progress reports, and events. Parents are actively involved in their child's educational journey, ensuring collaborative growth.",
+        iconColor: "yellow"
+    },
+    {
+        icon: Book,
+        title: "Nepali Culture and Driven Knowledge",
+        description: "While providing world-class education, we deeply value and integrate Nepali culture, traditions, and values into our curriculum. Children learn to appreciate their heritage while developing global perspectives and cultural awareness.",
+        iconColor: "red"
+    }
+];
+
+export default function WhyChooseUsPage() {
     return (
         <div className={styles.page}>
             {/* Hero Section */}

@@ -20,8 +20,8 @@ export default function AboutSection() {
                     >
                         <div className={styles.blobImage}>
                             <Image
-                                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                alt="Teacher and kids"
+                                src="/about-section-group.jpg"
+                                alt="Sunrays Pre-school graduation - students, parents and teachers"
                                 width={600}
                                 height={500}
                                 className={styles.img}

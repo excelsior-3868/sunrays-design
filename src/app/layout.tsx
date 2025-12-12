@@ -22,12 +22,28 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://sunrayspreschool.com'),
   title: {
     default: "Sunrays Pre School - Nurturing Young Minds in Kathmandu",
     template: "%s | Sunrays Pre School"
   },
   description: "Sunrays Pre School provides a fun, safe, and enriching environment for your child's early education in Kathmandu. Expert teachers, modern facilities, and engaging programs for holistic development.",
-  keywords: ["preschool", "kindergarten", "early education", "Kathmandu", "Nepal", "childcare", "learning programs", "child development"],
+  keywords: [
+    "preschool",
+    "kindergarten",
+    "early education",
+    "Kathmandu",
+    "Nepal",
+    "childcare",
+    "learning programs",
+    "child development",
+    "play group",
+    "nursery",
+    "LKG",
+    "UKG",
+    "Dallu preschool",
+    "best preschool kathmandu"
+  ],
   authors: [{ name: "Sunrays Pre School" }],
   creator: "Sunrays Pre School",
   publisher: "Sunrays Pre School",
@@ -35,6 +51,9 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  alternates: {
+    canonical: 'https://sunrayspreschool.com',
   },
   icons: {
     icon: [
@@ -79,6 +98,10 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  verification: {
+    // Add Google Search Console verification code here when available
+    // google: 'your-google-verification-code',
   },
 };
 

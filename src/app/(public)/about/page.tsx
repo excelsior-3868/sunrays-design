@@ -1,8 +1,19 @@
-'use client';
-
 import styles from './about.module.css';
 import Image from 'next/image';
 import FacilitiesSection from '@/components/FacilitiesSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'About Us - Our Story & Mission',
+    description: 'Learn about Sunrays Pre School\'s mission to nurture young minds in Kathmandu. Meet our experienced teachers and discover our child-centered approach to early education.',
+    keywords: ['about sunrays preschool', 'preschool kathmandu', 'early childhood education', 'experienced teachers', 'child development'],
+    openGraph: {
+        title: 'About Sunrays Pre School - Nurturing Young Minds',
+        description: 'Discover our mission, experienced teachers, and child-centered approach to early education in Kathmandu.',
+        type: 'website',
+        images: ['/about-children-group.jpg'],
+    },
+};
 
 export default function AboutPage() {
     return (
@@ -26,8 +37,8 @@ export default function AboutPage() {
                         <div className={styles.imageCol}>
                             <div className={styles.imageWrapper}>
                                 <Image
-                                    src="/about-kids.jpg"
-                                    alt="Children playing with blocks"
+                                    src="/about-children-group.jpg"
+                                    alt="Sunrays Pre-school students"
                                     width={500}
                                     height={500}
                                     className={styles.mainImage}

@@ -1,7 +1,19 @@
-'use client';
-
+import { Metadata } from 'next';
 import styles from './programs.module.css';
 import { CheckCircle2 } from 'lucide-react';
+import Image from 'next/image';
+
+export const metadata: Metadata = {
+    title: 'Our Programs - Play Group, Nursery, LKG & UKG',
+    description: 'Explore our comprehensive early education programs for children aged 2-6 years. From Play Group to Upper KG, we offer age-appropriate curriculum designed for holistic development.',
+    keywords: ['preschool programs', 'play group kathmandu', 'nursery program', 'LKG UKG', 'kindergarten curriculum', 'early childhood programs'],
+    openGraph: {
+        title: 'Sunrays Pre School Programs - Play Group to Upper KG',
+        description: 'Comprehensive early education programs for children aged 2-6 years with age-appropriate curriculum.',
+        type: 'website',
+        images: ['/playgroup-kid-full.jpg'],
+    },
+};
 
 export default function ProgramsPage() {
     return (
@@ -24,7 +36,12 @@ export default function ProgramsPage() {
                         {/* Play Group */}
                         <div className={`${styles.programBlock} ${styles.themeRed}`}>
                             <div className={styles.programVisual}>
-                                PG
+                                <Image
+                                    src="/playgroup-kid-full.jpg"
+                                    alt="Play Group student with painted hands"
+                                    fill
+                                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                                />
                             </div>
                             <div className={styles.programInfo}>
                                 <div className={styles.programHeader}>
@@ -48,7 +65,12 @@ export default function ProgramsPage() {
                         {/* Nursery */}
                         <div className={`${styles.programBlock} ${styles.themePurple}`}>
                             <div className={styles.programVisual}>
-                                N
+                                <Image
+                                    src="/nursery-swimming.jpg"
+                                    alt="Nursery students enjoying swimming activities"
+                                    fill
+                                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                                />
                             </div>
                             <div className={styles.programInfo}>
                                 <div className={styles.programHeader}>
@@ -72,7 +94,12 @@ export default function ProgramsPage() {
                         {/* LKG */}
                         <div className={`${styles.programBlock} ${styles.themeBlue}`}>
                             <div className={styles.programVisual}>
-                                LKG
+                                <Image
+                                    src="/lkg-cultural.jpg"
+                                    alt="Lower KG students in traditional cultural attire"
+                                    fill
+                                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                                />
                             </div>
                             <div className={styles.programInfo}>
                                 <div className={styles.programHeader}>
@@ -95,7 +122,12 @@ export default function ProgramsPage() {
                         {/* UKG */}
                         <div className={`${styles.programBlock} ${styles.themeGreen}`}>
                             <div className={styles.programVisual}>
-                                UKG
+                                <Image
+                                    src="/ukg-students.jpg"
+                                    alt="Upper KG students in traditional cultural attire"
+                                    fill
+                                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                                />
                             </div>
                             <div className={styles.programInfo}>
                                 <div className={styles.programHeader}>

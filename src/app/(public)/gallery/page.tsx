@@ -3,6 +3,18 @@ import Album from "@/lib/models/Album";
 import { format } from "date-fns";
 import Link from "next/link";
 import { Folder } from "lucide-react";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Photo Gallery - Our Memories & Events',
+    description: 'Explore our photo gallery showcasing activities, events, and happy moments at Sunrays Pre School. See our children learning, playing, and growing in a nurturing environment.',
+    keywords: ['preschool gallery', 'school events', 'preschool activities', 'children photos', 'school memories'],
+    openGraph: {
+        title: 'Photo Gallery - Sunrays Pre School',
+        description: 'Explore our activities, events, and happy moments captured in frames.',
+        type: 'website',
+    },
+};
 
 async function getAlbums() {
     await dbConnect();

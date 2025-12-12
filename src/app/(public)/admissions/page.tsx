@@ -1,8 +1,18 @@
-'use client';
-
+import { Metadata } from 'next';
 import styles from './admissions.module.css';
 import { FileText, CheckCircle2, Clock, Calendar, ClipboardList } from 'lucide-react';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+    title: 'Admissions - Enroll Your Child Today',
+    description: 'Join the Sunrays Pre School family. Learn about our simple admission process, required documents, and school schedule. Enroll your child in quality early education in Kathmandu.',
+    keywords: ['preschool admission kathmandu', 'enroll preschool', 'admission procedure', 'school timings', 'preschool enrollment'],
+    openGraph: {
+        title: 'Admissions - Sunrays Pre School Kathmandu',
+        description: 'Simple admission process for quality early education. School hours: 9 AM - 2:45 PM, Sun - Fri.',
+        type: 'website',
+    },
+};
 
 export default function AdmissionsPage() {
     return (

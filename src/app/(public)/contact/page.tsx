@@ -1,53 +1,19 @@
-'use client';
-
+import { Metadata } from 'next';
 import styles from './contact.module.css';
-import { Building2, Phone, Mail, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
-import { useState } from 'react';
+import ContactForm from './ContactForm';
+
+export const metadata: Metadata = {
+    title: 'Contact Us - Get in Touch',
+    description: 'Contact Sunrays Pre School in Kathmandu. Visit us at Purnadevi Marg, Dallu or call 01-4282926. We\'re here to answer your questions about admissions and programs.',
+    keywords: ['contact sunrays preschool', 'preschool kathmandu contact', 'dallu preschool', 'admission inquiry', 'preschool location'],
+    openGraph: {
+        title: 'Contact Sunrays Pre School - Kathmandu',
+        description: 'Get in touch with us at Purnadevi Marg, Dallu, Kathmandu. Call 01-4282926 or email info.sunrayspreschool@gmail.com',
+        type: 'website',
+    },
+};
 
 export default function ContactPage() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-    });
-    const [loading, setLoading] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setLoading(true);
-        setSubmitStatus(null);
-
-        try {
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
-
-            const data = await res.json();
-
-            if (!res.ok) {
-                throw new Error(data.error || 'Failed to submit form');
-            }
-
-            setSubmitStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
-            setFormData({ name: '', email: '', phone: '', message: '' });
-        } catch (err: any) {
-            setSubmitStatus({ type: 'error', message: err.message || 'Failed to send message. Please try again.' });
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
     return (
         <div className={styles.contactPage}>
             {/* Hero Section */}
@@ -60,136 +26,7 @@ export default function ContactPage() {
                 </div>
             </section>
 
-            {/* Get In Touch Section */}
-            <section className={styles.contactSection}>
-                <div className="container">
-                    <div className={styles.contactGrid}>
-                        {/* Left Side - Contact Info */}
-                        <div className={styles.contactInfo}>
-                            <h2 className={styles.sectionTitle}>Get In Touch</h2>
-                            <p className={styles.description}>
-                                Have questions or want to learn more about our programs? We'd love to hear from you. Reach out to us using the contact details below or send us a message directly.
-                            </p>
-
-                            {/* Single Location Card */}
-                            <div className={styles.locationCard}>
-                                <div className={styles.locationIcon}>
-                                    <Building2 size={32} />
-                                </div>
-                                <h3 className={styles.locationTitle}>Sunrays Pre School</h3>
-                                <div className={styles.locationDetails}>
-                                    <p className={styles.locationItem}>
-                                        <span className={styles.locationLabel}>📍</span>
-                                        Purnadevi Marg, Dallu, Kathmandu-15
-                                    </p>
-                                    <p className={styles.locationItem}>
-                                        <Phone size={16} className={styles.icon} />
-                                        01-4282926
-                                    </p>
-                                    <p className={styles.locationItem}>
-                                        <Mail size={16} className={styles.icon} />
-                                        info.sunrayspreschool@gmail.com
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Social Media */}
-                            <div className={styles.socialSection}>
-                                <h3 className={styles.socialTitle}>Follow Us</h3>
-                                <div className={styles.socialIcons}>
-                                    <a href="https://www.facebook.com/share/1Cu5owpEjK/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                                        <Facebook size={20} />
-                                    </a>
-                                    <a href="#" className={styles.socialIcon}>
-                                        <Instagram size={20} />
-                                    </a>
-                                    <a href="#" className={styles.socialIcon}>
-                                        <Twitter size={20} />
-                                    </a>
-                                    <a href="#" className={styles.socialIcon}>
-                                        <Youtube size={20} />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Right Side - Contact Form */}
-                        <div className={styles.formWrapper}>
-                            <form onSubmit={handleSubmit} className={styles.contactForm}>
-                                <div className={styles.formGroup}>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        placeholder="Your Name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className={styles.formInput}
-                                        required
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="Your Email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className={styles.formInput}
-                                        required
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        placeholder="Phone Number"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        className={styles.formInput}
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <textarea
-                                        name="message"
-                                        placeholder="Your Message"
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        className={styles.formTextarea}
-                                        rows={6}
-                                        required
-                                    ></textarea>
-                                </div>
-
-                                {submitStatus && (
-                                    <div className={`${styles.statusMessage} ${submitStatus.type === 'success' ? styles.success : styles.error}`}>
-                                        {submitStatus.message}
-                                    </div>
-                                )}
-
-                                <button type="submit" className={styles.submitButton} disabled={loading}>
-                                    {loading ? 'Sending...' : 'Send Message'}
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    {/* Map Section */}
-                    <div className={styles.mapSection}>
-                        <div className={styles.mapContainer}>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.213931486824!2d85.29338779999999!3d27.7106803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb185dd9ba0c59%3A0x724f43e95354e155!2sSun%20Rays%20Pre-School!5e0!3m2!1sen!2snp!4v1765472810985!5m2!1sen!2snp"
-                                className={styles.mapFrame}
-                                allowFullScreen
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                            ></iframe>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <ContactForm />
         </div>
     );
 }
