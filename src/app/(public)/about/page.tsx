@@ -126,7 +126,7 @@ export default function AboutPage() {
                                 ></div>
                             </div>
                             <div className={styles.teacherInfo}>
-                                <h3 className={styles.teacherName}>Manahera Majarjan</h3>
+                                <h3 className={styles.teacherName}>Manahera Maharjan</h3>
                                 <p className={styles.teacherRole}>Principal</p>
                             </div>
                         </div>
