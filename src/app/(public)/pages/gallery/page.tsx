@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { supabase } from "@/lib/supabase";
-import { Folder } from "lucide-react";
+import { Folder, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { format } from "date-fns";
 import styles from './gallery.module.css';
@@ -68,7 +68,7 @@ export default function GalleryPage() {
     if (loading) {
         return (
             <div className={styles.loading}>
-                <p>Loading gallery...</p>
+                <Loader2 className="animate-spin" size={48} style={{ color: 'var(--color-primary)' }} />
             </div>
         );
     }
@@ -132,9 +132,11 @@ export default function GalleryPage() {
 
                                     <div className={styles.cardContent}>
                                         <h3 className={styles.albumTitle}>{album.title}</h3>
-                                        <p className={styles.albumDesc}>
-                                            {album.description || "No description available."}
-                                        </p>
+                                        {album.description && (
+                                            <p className={styles.albumDesc}>
+                                                {album.description}
+                                            </p>
+                                        )}
                                         <div className={styles.albumDate}>
                                             {format(new Date(album.created_at), 'MMMM d, yyyy')}
                                         </div>

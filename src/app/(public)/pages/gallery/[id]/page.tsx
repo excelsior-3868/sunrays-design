@@ -2,7 +2,7 @@
 
 import { use, useEffect, useState } from 'react';
 import { supabase } from "@/lib/supabase";
-import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, X, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { format } from "date-fns";
 import styles from './album-detail.module.css';
@@ -121,7 +121,7 @@ export default function AlbumDetailPage({ params }: { params: Promise<{ id: stri
     if (loading) {
         return (
             <div className={styles.loading}>
-                <p>Loading album...</p>
+                <Loader2 className="animate-spin" size={48} style={{ color: 'var(--color-primary)' }} />
             </div>
         );
     }

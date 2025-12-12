@@ -2,6 +2,7 @@ import dbConnect from "@/lib/db";
 import Album from "@/lib/models/Album";
 import { format } from "date-fns";
 import Link from "next/link";
+import Image from "next/image";
 import { Folder } from "lucide-react";
 import { Metadata } from 'next';
 
@@ -53,16 +54,22 @@ export default async function GalleryPage() {
                 </div>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    {albums.map((album) => (
+                    {albums.map((album, index) => (
                         <Link href={`/gallery/${album._id}`} key={album._id} className="group block h-full">
                             <div className="bg-white rounded-[24px] shadow-sm hover:shadow-card transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col overflow-hidden border border-gray-100">
                                 {/* Image Container */}
                                 <div className="relative aspect-[4/3] w-full bg-gray-100 overflow-hidden">
                                     {album.coverImage ? (
-                                        <img
+                                        <Image
                                             src={album.coverImage}
                                             alt={album.title}
-                                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            fill
+                                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            loading={index < 4 ? "eager" : "lazy"}
+                                            priority={index < 4}
+                                            placeholder="blur"
+                                            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                                         />
                                     ) : (
                                         <div className="h-full w-full flex items-center justify-center bg-gray-50">
@@ -70,7 +77,7 @@ export default async function GalleryPage() {
                                         </div>
                                     )}
                                     {/* Overlay Gradient */}
-                                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-60" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
 
                                     <div className="absolute bottom-3 right-3">
                                         <span className="bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/30 shadow-xs">

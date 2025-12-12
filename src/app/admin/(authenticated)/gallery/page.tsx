@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import styles from './gallery-admin.module.css'; // Shared CSS or reuse styles
 import Link from 'next/link';
-import { Plus, Image as ImageIcon, MapPin, Eye, Edit } from 'lucide-react';
+import { Plus, Image as ImageIcon, MapPin, Eye, Edit, Loader2 } from 'lucide-react';
 
 // Using inline styles for layout as we reuse dashboard/blog layout usually
 export default function GalleryAdminPage() {
@@ -26,7 +26,11 @@ export default function GalleryAdminPage() {
         }
     };
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
+            <Loader2 className="animate-spin" size={40} style={{ color: '#FF4A57' }} />
+        </div>
+    );
 
     return (
         <div style={{ padding: '20px' }}>

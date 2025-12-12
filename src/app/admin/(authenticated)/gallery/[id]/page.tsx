@@ -94,7 +94,11 @@ export default function EditAlbumPage({ params }: { params: Promise<{ id: string
         }
     };
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
+            <Loader2 className="animate-spin" size={40} style={{ color: '#FF4A57' }} />
+        </div>
+    );
 
     return (
         <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>

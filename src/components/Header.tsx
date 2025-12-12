@@ -93,6 +93,13 @@ export default function Header() {
                     >
                         Why Choose Us?
                     </Link>
+
+                    <Link
+                        href="/contact"
+                        className={`${styles.link} ${isActive('/contact') ? styles.active : ''}`}
+                    >
+                        Contact Us
+                    </Link>
                 </nav>
 
                 <div className={styles.rightActions}>
@@ -125,6 +132,7 @@ export default function Header() {
                         <Link href="/pages/faq" className={styles.mobileLinkSub}>FAQ</Link>
 
                         <Link href="/why-choose-us" className={`${styles.mobileLink} ${isActive('/why-choose-us') ? styles.active : ''}`}>Why Choose Us?</Link>
+                        <Link href="/contact" className={`${styles.mobileLink} ${isActive('/contact') ? styles.active : ''}`}>Contact Us</Link>
                     </nav>
                 </div>
             </div>

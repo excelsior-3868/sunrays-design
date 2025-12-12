@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import styles from './blog-admin.module.css';
 import Link from 'next/link';
-import { Plus, Edit, Eye, Trash2 } from 'lucide-react';
+import { Plus, Edit, Eye, Trash2, Loader2 } from 'lucide-react';
 
 export default function BlogAdminPage() {
     const [posts, setPosts] = useState([]);
@@ -25,7 +25,11 @@ export default function BlogAdminPage() {
         }
     };
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '400px' }}>
+            <Loader2 className="animate-spin" size={40} style={{ color: '#FF4A57' }} />
+        </div>
+    );
 
     return (
         <div className={styles.container}>
