@@ -91,14 +91,7 @@ export default function Header() {
                         href="/why-choose-us"
                         className={`${styles.link} ${isActive('/why-choose-us') ? styles.active : ''}`}
                     >
-                        Why Choose Us?
-                    </Link>
-
-                    <Link
-                        href="/contact"
-                        className={`${styles.link} ${isActive('/contact') ? styles.active : ''}`}
-                    >
-                        Contact Us
+                        What Sets Us Apart?
                     </Link>
                 </nav>
 
@@ -131,8 +124,7 @@ export default function Header() {
                         <Link href="/pages/blog" className={styles.mobileLinkSub}>Blog</Link>
                         <Link href="/pages/faq" className={styles.mobileLinkSub}>FAQ</Link>
 
-                        <Link href="/why-choose-us" className={`${styles.mobileLink} ${isActive('/why-choose-us') ? styles.active : ''}`}>Why Choose Us?</Link>
-                        <Link href="/contact" className={`${styles.mobileLink} ${isActive('/contact') ? styles.active : ''}`}>Contact Us</Link>
+                        <Link href="/why-choose-us" className={`${styles.mobileLink} ${isActive('/why-choose-us') ? styles.active : ''}`}>What Sets Us Apart?</Link>
                     </nav>
                 </div>
             </div>

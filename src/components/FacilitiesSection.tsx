@@ -11,7 +11,7 @@ export default function FacilitiesSection() {
             <div className="container">
                 <div className={styles.row}>
                     <div className={styles.left}>
-                        <span className={styles.subtitle}>Why Choose Us?</span>
+                        <span className={styles.subtitle}>What Sets Us Apart?</span>
                         <h2 className={styles.title}>Complete Facilities</h2>
                         <p className={styles.introDesc}>
                             We provide an environment designed to support every child’s growth, comfort, and happiness. Our facilities ensure a safe, nurturing, and engaging learning experience.

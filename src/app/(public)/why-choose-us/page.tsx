@@ -3,7 +3,7 @@ import styles from './why-choose-us.module.css';
 import { GraduationCap, Home, Users, Utensils, Shield, Heart, Stethoscope, MessageCircle, Book } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Why Choose Us - Complete Facilities & Expert Care',
+    title: 'What Sets Us Apart - Complete Facilities & Expert Care',
     description: 'Discover why parents choose Sunrays Pre School: quality teaching, spacious classrooms, experienced teachers, nutritious meals, health support, and integration of Nepali culture.',
     keywords: ['best preschool kathmandu', 'quality preschool', 'experienced teachers', 'preschool facilities', 'child nutrition', 'nepali culture education'],
     openGraph: {
@@ -75,7 +75,7 @@ export default function WhyChooseUsPage() {
         <div className={styles.page}>
             {/* Hero Section */}
             <section className={styles.hero}>
-                <h1 className={styles.heroTitle}>Why Choose Us?</h1>
+                <h1 className={styles.heroTitle}>What Sets Us Apart?</h1>
                 <div className={styles.waveBottom}>
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className={styles.waveSvg}>
                         <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z" fill="#ffffff"></path>
@@ -87,7 +87,7 @@ export default function WhyChooseUsPage() {
             <section className={styles.mainContent}>
                 <div className="container">
                     <div className={styles.contentWrapper}>
-                        <span className={styles.subtitle}>Why Choose Us?</span>
+                        <span className={styles.subtitle}>What Sets Us Apart?</span>
                         <h2 className={styles.sectionTitle}>Complete Facilities</h2>
                         <p className={styles.description}>
                             We provide an environment designed to support every child's growth, comfort, and happiness.

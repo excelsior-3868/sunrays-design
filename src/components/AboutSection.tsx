@@ -41,7 +41,7 @@ export default function AboutSection() {
                         <span className={styles.subtitle}>About Us</span>
                         <h2 className={styles.title}>Give Children the Space to Learn, Grow & Shine</h2>
                         <p className={styles.description}>
-                            About Our School: Our Sunrays Pre-school provides early childhood education and care for children. We help them develop various ranges of skills that make them ready to learn various activities. We are located at prime residential area of Kathmandu valley. Our Sunrays Pre-school ensures high quality education to children that are both accessible and affordable.
+                            Our Sunrays Pre-school provides early childhood education and care for children. We help them develop various ranges of skills that make them ready to learn various activities. We are located at prime residential area of Kathmandu valley. Our Sunrays Pre-school ensures high quality education to children that are both accessible and affordable.
                         </p>
 
 
