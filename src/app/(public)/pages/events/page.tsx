@@ -1,6 +1,7 @@
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 import styles from './events.module.css';
-import { Calendar, MapPin, ArrowLeft } from 'lucide-react';
+import { Calendar, MapPin, ArrowLeft, Loader2 } from 'lucide-react';
 import dbConnect from '@/lib/db';
 import Event from '@/lib/models/Event';
 
@@ -28,7 +29,7 @@ async function getPublishedEvents() {
     return JSON.parse(JSON.stringify(events));
 }
 
-export default async function EventsPage() {
+async function EventsContent() {
     const allEvents = await getPublishedEvents();
 
     // Separate upcoming and past events
@@ -44,18 +45,22 @@ export default async function EventsPage() {
         });
     };
 
-    return (
-        <div className={styles.eventsPage}>
-            {/* Hero Section */}
-            <section className={styles.hero}>
-                <h1 className={styles.heroTitle}>Events & Activities</h1>
-                <div className={styles.waveBottom}>
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className={styles.waveSvg}>
-                        <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z" fill="#ffffff"></path>
-                    </svg>
+    if (upcomingEvents.length === 0 && pastEvents.length === 0) {
+        return (
+            <section className={styles.eventsSection}>
+                <div className="container">
+                    <div className={styles.noEvents}>
+                        <Calendar size={64} />
+                        <h3>No Events Available</h3>
+                        <p>Check back soon for upcoming events and activities!</p>
+                    </div>
                 </div>
             </section>
+        );
+    }
 
+    return (
+        <>
             {/* Upcoming Events */}
             {upcomingEvents.length > 0 && (
                 <section className={styles.eventsSection}>
@@ -110,64 +115,79 @@ export default async function EventsPage() {
                         </div>
                     </div>
                 </section>
-            )
-            }
+            )}
 
             {/* Past Events */}
-            {
-                pastEvents.length > 0 && (
-                    <section className={styles.eventsSection}>
-                        <div className="container">
-                            <h2 className={styles.sectionTitle}>Past Events</h2>
-                            <div className={styles.eventsGrid}>
-                                {pastEvents.map((event: any) => (
-                                    <div
-                                        key={event._id}
-                                        className={`${styles.eventCard} ${styles.pastEvent}`}
-                                    >
-                                        {event.imageUrl && (
-                                            <div className={styles.eventImage}>
-                                                <img src={event.imageUrl} alt={event.title} />
+            {pastEvents.length > 0 && (
+                <section className={styles.eventsSection}>
+                    <div className="container">
+                        <h2 className={styles.sectionTitle}>Past Events</h2>
+                        <div className={styles.eventsGrid}>
+                            {pastEvents.map((event: any) => (
+                                <div
+                                    key={event._id}
+                                    className={`${styles.eventCard} ${styles.pastEvent}`}
+                                >
+                                    {event.imageUrl && (
+                                        <div className={styles.eventImage}>
+                                            <img src={event.imageUrl} alt={event.title} />
+                                        </div>
+                                    )}
+                                    <div className={styles.eventContent}>
+                                        <h3>{event.title}</h3>
+                                        <p className={styles.description}>
+                                            {event.description}
+                                        </p>
+                                        <div className={styles.eventMeta}>
+                                            <div className={styles.metaItem}>
+                                                <Calendar size={18} />
+                                                {formatDate(event.date)}
                                             </div>
-                                        )}
-                                        <div className={styles.eventContent}>
-                                            <h3>{event.title}</h3>
-                                            <p className={styles.description}>
-                                                {event.description}
-                                            </p>
-                                            <div className={styles.eventMeta}>
-                                                <div className={styles.metaItem}>
-                                                    <Calendar size={18} />
-                                                    {formatDate(event.date)}
-                                                </div>
-                                                <div className={styles.metaItem}>
-                                                    <MapPin size={18} />
-                                                    {event.location}
-                                                </div>
+                                            <div className={styles.metaItem}>
+                                                <MapPin size={18} />
+                                                {event.location}
                                             </div>
                                         </div>
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </div>
-                    </section>
-                )
-            }
+                    </div>
+                </section>
+            )}
+        </>
+    );
+}
 
-            {/* No Events */}
-            {
-                upcomingEvents.length === 0 && pastEvents.length === 0 && (
-                    <section className={styles.eventsSection}>
-                        <div className="container">
-                            <div className={styles.noEvents}>
-                                <Calendar size={64} />
-                                <h3>No Events Available</h3>
-                                <p>Check back soon for upcoming events and activities!</p>
-                            </div>
-                        </div>
-                    </section>
-                )
-            }
-        </div >
+function LoadingEvents() {
+    return (
+        <section className={styles.eventsSection}>
+            <div className="container" style={{ display: 'flex', justifyContent: 'center', padding: '100px 0' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
+                    <Loader2 className="animate-spin" size={48} color="#FF7A00" />
+                    <p style={{ color: '#666', fontSize: '1.1rem' }}>Loading upcoming events...</p>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+export default function EventsPage() {
+    return (
+        <div className={styles.eventsPage}>
+            {/* Hero Section */}
+            <section className={styles.hero}>
+                <h1 className={styles.heroTitle}>Events & Activities</h1>
+                <div className={styles.waveBottom}>
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className={styles.waveSvg}>
+                        <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z" fill="#ffffff"></path>
+                    </svg>
+                </div>
+            </section>
+
+            <Suspense fallback={<LoadingEvents />}>
+                <EventsContent />
+            </Suspense>
+        </div>
     );
 }

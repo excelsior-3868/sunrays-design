@@ -22,17 +22,20 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sunrayspreschool.com'),
+  metadataBase: new URL('https://sunrayspreschool.edu.np'),
   title: {
-    default: "Sunrays Pre School - Nurturing Young Minds in Kathmandu",
+    default: "Sunrays Pre School",
     template: "%s | Sunrays Pre School"
   },
-  description: "Sunrays Pre School provides a fun, safe, and enriching environment for your child's early education in Kathmandu. Expert teachers, modern facilities, and engaging programs for holistic development.",
+  description: "Sunrays Pre School provides a fun, safe, and enriching environment for your child's early education. Expert teachers, modern facilities, and engaging programs for holistic development.",
   keywords: [
+    "sunrays",
+    "sunrays pre school",
     "preschool",
     "kindergarten",
     "early education",
     "Kathmandu",
+    "preschool in kathmandu",
     "Nepal",
     "childcare",
     "learning programs",
@@ -53,13 +56,15 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: 'https://sunrayspreschool.com',
+    canonical: 'https://sunrayspreschool.edu.np',
   },
   icons: {
     icon: [
       { url: "/sunrays-logo.png", sizes: "any" },
       { url: "/sunrays-logo.png", sizes: "32x32", type: "image/png" },
       { url: "/sunrays-logo.png", sizes: "16x16", type: "image/png" },
+      { url: "/sunrays-logo.png", sizes: "192x192", type: "image/png" },
+      { url: "/sunrays-logo.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
       { url: "/sunrays-logo.png", sizes: "180x180", type: "image/png" },
@@ -69,10 +74,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sunrayspreschool.com",
+    url: "https://sunrayspreschool.edu.np",
     siteName: "Sunrays Pre School",
-    title: "Sunrays Pre School - Nurturing Young Minds",
-    description: "A fun, safe, and enriching environment for your child's early education in Kathmandu",
+    title: "Sunrays Pre School - Nurturing Young Minds with Quality Early Education",
+    description: "A fun, safe, and enriching environment for your child's early education",
     images: [
       {
         url: "/sunrays-logo.png",
@@ -110,9 +115,44 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Preschool',
+    name: 'Sunrays Pre School',
+    image: 'https://sunrayspreschool.edu.np/sunrays-logo.png',
+    logo: 'https://sunrayspreschool.edu.np/sunrays-logo.png',
+    description: "Sunrays Pre School provides a fun, safe, and enriching environment for your child's early education .",
+    url: 'https://sunrayspreschool.edu.np',
+    telephone: '01-4282926',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Purnadevi Marg, Dallu',
+      addressLocality: 'Kathmandu',
+      addressRegion: 'Bagmati',
+      postalCode: '44600',
+      addressCountry: 'NP'
+    },
+    priceRange: '$$',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '16:00'
+      }
+    ],
+    sameAs: [
+      'https://www.facebook.com/sunrayspreschool',
+    ]
+  };
+
   return (
     <html lang="en">
       <body className={`${outfit.variable} ${fredoka.variable} ${notoSansDevanagari.variable} antialiased`} suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <Analytics />
       </body>

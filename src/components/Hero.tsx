@@ -71,6 +71,12 @@ export default function Hero() {
                 >
                     We identify your child's love language.
                 </motion.h1>
+
+                <div className={styles.mobileCta}>
+                    <a href="/contact" className={styles.ctaButton}>
+                        Get Started
+                    </a>
+                </div>
             </div>
 
             {/* White Wave SVG at bottom */}

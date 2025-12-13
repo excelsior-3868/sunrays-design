@@ -116,6 +116,10 @@
     box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
 }
 
+.mobileCta {
+    display: none;
+}
+
 /* The floating blocks A and X */
 .floatingElements {
     position: absolute;
@@ -256,6 +260,11 @@
         /* Center vertically on mobile */
         justify-content: center;
         text-align: center;
+    }
+
+    .mobileCta {
+        display: block;
+        margin-top: 2rem;
     }
 
     .contentContainer {
