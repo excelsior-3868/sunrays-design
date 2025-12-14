@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://sunrayspreschool.com'
+    const baseUrl = 'https://sunrayspreschool.edu.np'
 
     return [
         {
@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/gallery`,
+            url: `${baseUrl}/pages/gallery`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.7,
@@ -44,6 +44,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/contact`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
+            priority: 0.7,
+        },
+        {
+            url: `${baseUrl}/pages/events`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        },
+        {
+            url: `${baseUrl}/pages/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        },
+        {
+            url: `${baseUrl}/pages/faq`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
             priority: 0.7,
         },
     ]

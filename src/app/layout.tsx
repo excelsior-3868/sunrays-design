@@ -60,16 +60,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/sunrays-logo.png", sizes: "any" },
-      { url: "/sunrays-logo.png", sizes: "32x32", type: "image/png" },
-      { url: "/sunrays-logo.png", sizes: "16x16", type: "image/png" },
-      { url: "/sunrays-logo.png", sizes: "192x192", type: "image/png" },
-      { url: "/sunrays-logo.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
     ],
     apple: [
-      { url: "/sunrays-logo.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-icon.png" },
     ],
-    shortcut: "/sunrays-logo.png",
+    shortcut: "/favicon.ico",
   },
   openGraph: {
     type: "website",

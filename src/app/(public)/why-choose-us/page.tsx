@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: 'Discover why parents choose Sunrays Pre School: quality teaching, spacious classrooms, experienced teachers, nutritious meals, health support, and integration of Nepali culture.',
     keywords: ['best preschool kathmandu', 'quality preschool', 'experienced teachers', 'preschool facilities', 'child nutrition', 'nepali culture education'],
     openGraph: {
-        title: 'Why Choose Sunrays Pre School - Complete Facilities',
+        title: 'What Sets Us Apart - Complete Facilities',
         description: 'Quality teaching, experienced educators, spacious facilities, and comprehensive child care in Kathmandu.',
         type: 'website',
     },

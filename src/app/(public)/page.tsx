@@ -7,9 +7,19 @@ import EnrollmentSection from "@/components/EnrollmentSection";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Sunrays Pre School - Nurturing Young Minds in Kathmandu',
-  description: 'Sunrays Pre School provides a fun, safe, and enriching environment for your child\'s early education in Kathmandu. Expert teachers, modern facilities, and engaging programs for holistic development.',
-  keywords: ['preschool kathmandu', 'kindergarten nepal', 'early education', 'childcare dallu', 'best preschool kathmandu', 'play group nursery'],
+  title: 'Sunrays Pre School - Nurturing Young Minds',
+  description: 'Sunrays Pre School provides a fun, safe, and enriching environment for your child\'s early education. Expert teachers, modern facilities, and engaging programs for holistic development.',
+  keywords: [
+    'sunrays',
+    'play way method',
+    'sun rays pre school',
+    'sunrays preschool',
+    'preschool kathmandu',
+    'kindergarten nepal',
+    'early education',
+    'childcare dallu',
+    'best preschool kathmandu',
+    'play group nursery'],
 };
 
 export default function Home() {
@@ -24,10 +34,10 @@ export default function Home() {
             "@type": "EducationalOrganization",
             "name": "Sunrays Pre School",
             "alternateName": "Sun Rays Pre-School",
-            "description": "Quality early childhood education and care for children aged 2-6 years in Kathmandu, Nepal",
-            "url": "https://sunrayspreschool.com",
-            "logo": "https://sunrayspreschool.com/sunrays-logo.png",
-            "image": "https://sunrayspreschool.com/sunrays-logo.png",
+            "description": "Quality early childhood education and care for children aged 2-6 years",
+            "url": "https://sunrayspreschool.edu.np",
+            "logo": "https://sunrayspreschool.edu.np/sunrays-logo.png",
+            "image": "https://sunrayspreschool.edu.np/sunrays-logo.png",
             "telephone": "+977-1-4282926",
             "email": "info.sunrayspreschool@gmail.com",
             "address": {
@@ -36,7 +46,7 @@ export default function Home() {
               "addressLocality": "Kathmandu",
               "addressRegion": "Bagmati",
               "postalCode": "44600",
-              "addressCountry": "NP"
+              "addressCountry": "Nepal "
             },
             "geo": {
               "@type": "GeoCoordinates",
