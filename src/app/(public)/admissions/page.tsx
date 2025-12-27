@@ -4,7 +4,7 @@ import { FileText, CheckCircle2, Clock, Calendar, ClipboardList } from 'lucide-r
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'Admissions - Enroll Your Child Today',
+    title: 'Admissions',
     description: 'Join the Sunrays Pre School family. Learn about our simple admission process, required documents, and school schedule. Enroll your child in quality early education in Kathmandu.',
     keywords: ['preschool admission kathmandu', 'enroll preschool', 'admission procedure', 'school timings', 'preschool enrollment'],
     openGraph: {
@@ -15,8 +15,31 @@ export const metadata: Metadata = {
 };
 
 export default function AdmissionsPage() {
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://sunrayspreschool.edu.np'
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Admissions',
+                item: 'https://sunrayspreschool.edu.np/admissions'
+            }
+        ]
+    };
+
     return (
         <div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             {/* Hero Section */}
             <section className={styles.hero}>
                 <h1 className={styles.heroTitle}>Admissions</h1>

@@ -4,20 +4,43 @@ import FacilitiesSection from '@/components/FacilitiesSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'About Us - Our Story & Mission',
-    description: 'Learn about Sunrays Pre School\'s mission to nurture young minds in Kathmandu. Meet our experienced teachers and discover our child-centered approach to early education.',
+    title: 'About Us',
+    description: 'Learn about Sunrays Pre School\'s mission to nurture young minds in Kathmandu. Meet our experienced teachers and discover our student-centered approach.',
     keywords: ['about sunrays preschool', 'preschool kathmandu', 'early childhood education', 'experienced teachers', 'child development'],
     openGraph: {
         title: 'About Sunrays Pre School - Nurturing Young Minds',
         description: 'Discover our mission, experienced teachers, and child-centered approach to early education in Kathmandu.',
         type: 'website',
-        images: ['/about-children-group.jpg'],
+        images: ['https://sunrayspreschool.edu.np/about-children-group.jpg'],
     },
 };
 
 export default function AboutPage() {
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://sunrayspreschool.edu.np'
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'About Us',
+                item: 'https://sunrayspreschool.edu.np/about'
+            }
+        ]
+    };
+
     return (
         <div className={styles.aboutPage}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             {/* Hero Section */}
             <section className={styles.hero}>
                 <div className={styles.heroContent}>
