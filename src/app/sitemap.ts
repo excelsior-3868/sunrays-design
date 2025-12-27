@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: baseUrl,
             lastModified: new Date(),
-            changeFrequency: 'weekly',
+            changeFrequency: 'always',
             priority: 1,
         },
         {
@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/admissions`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
-            priority: 0.8,
+            priority: 0.9,
         },
         {
             url: `${baseUrl}/why-choose-us`,
@@ -38,6 +38,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/pages/gallery`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/pages/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/pages/faq`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
             priority: 0.7,
         },
         {
@@ -50,19 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/pages/events`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/pages/blog`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/pages/faq`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.7,
+            priority: 0.6,
         },
     ]
 }
