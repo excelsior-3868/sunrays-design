@@ -58,6 +58,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sunrayspreschool.edu.np',
   },
+  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -68,6 +69,7 @@ export const metadata: Metadata = {
     ],
     shortcut: "/favicon.ico",
   },
+
   openGraph: {
     type: "website",
     locale: "en_US",

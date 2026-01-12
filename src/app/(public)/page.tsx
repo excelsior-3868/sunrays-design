@@ -22,6 +22,8 @@ export const metadata: Metadata = {
     'play group nursery'],
 };
 
+
+
 export default function Home() {
   return (
     <>
