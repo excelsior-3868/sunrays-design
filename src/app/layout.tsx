@@ -73,18 +73,14 @@ export const metadata: Metadata = {
     ],
     shortcut: "/favicon.ico",
   },
-<<<<<<< HEAD
 
-=======
-  manifest: '/manifest.json',
->>>>>>> dfc807088e23985f9ed0fad0cc32a01f10f05995
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://sunrayspreschool.edu.np",
     siteName: "Sunrays Pre School",
     title: "Sunrays Pre School - Nurturing Young Minds",
-    description: "A fun, safe, and enriching environment for your child's early education in Kathmandu.",
+    description: "A fun, safe, and enriching environment for your child's early education.",
     images: [
       {
         url: "https://sunrayspreschool.edu.np/sunrays-logo.png",
@@ -167,10 +163,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
-      </head>
+
       <body className={`${outfit.variable} ${fredoka.variable} ${notoSansDevanagari.variable} antialiased`} suppressHydrationWarning>
         <script
           type="application/ld+json"
