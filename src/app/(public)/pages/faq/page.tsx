@@ -117,8 +117,48 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://sunrayspreschool.edu.np'
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'FAQ',
+                item: 'https://sunrayspreschool.edu.np/pages/faq'
+            }
+        ]
+    };
+
+    const faqJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(faq => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: typeof faq.answer === 'string' ? faq.answer : 'Visit our website for more details.'
+            }
+        }))
+    };
+
     return (
         <div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+            />
             {/* Hero Section */}
             <section className={styles.hero}>
                 <h1 className={styles.heroTitle}>FAQ</h1>

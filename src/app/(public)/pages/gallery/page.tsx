@@ -38,6 +38,25 @@ function getThumbnailUrl(url: string, fileId?: string | null, size: number = 400
 }
 
 export default function GalleryPage() {
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://sunrayspreschool.edu.np'
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Gallery',
+                item: 'https://sunrayspreschool.edu.np/pages/gallery'
+            }
+        ]
+    };
+
     const [albums, setAlbums] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -86,6 +105,10 @@ export default function GalleryPage() {
 
     return (
         <div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             {/* Hero Section */}
             <section className={styles.hero}>
                 <h1 className={styles.heroTitle}>Photo Gallery</h1>

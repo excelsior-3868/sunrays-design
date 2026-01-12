@@ -4,20 +4,43 @@ import { CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-    title: 'Our Programs - Play Group, Nursery, LKG & UKG',
+    title: 'Programs',
     description: 'Explore our comprehensive early education programs for children aged 2-6 years. From Play Group to Upper KG, we offer age-appropriate curriculum designed for holistic development.',
     keywords: ['preschool programs', 'play group kathmandu', 'nursery program', 'LKG UKG', 'kindergarten curriculum', 'early childhood programs'],
     openGraph: {
-        title: 'Sunrays Pre School Programs - Play Group to Upper KG',
+        title: 'Sunrays Pre School Programs',
         description: 'Comprehensive early education programs for children aged 2-6 years with age-appropriate curriculum.',
         type: 'website',
-        images: ['/playgroup-kid-full.jpg'],
+        images: ['https://sunrayspreschool.edu.np/playgroup-kid-full.jpg'],
     },
 };
 
 export default function ProgramsPage() {
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://sunrayspreschool.edu.np'
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Programs',
+                item: 'https://sunrayspreschool.edu.np/programs'
+            }
+        ]
+    };
+
     return (
         <div style={{ backgroundColor: '#fff' }}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             {/* Hero Section */}
             <section className={styles.hero}>
                 <h1 className={styles.heroTitle}>Our Programs</h1>

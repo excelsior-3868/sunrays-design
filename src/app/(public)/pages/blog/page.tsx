@@ -133,11 +133,34 @@ function LoadingBlog() {
 }
 
 export default function BlogPage() {
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://sunrayspreschool.edu.np'
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Blog',
+                item: 'https://sunrayspreschool.edu.np/pages/blog'
+            }
+        ]
+    };
+
     return (
         <div className={styles.blogPage}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             {/* Hero Section */}
             <section className={styles.hero}>
-                <h1 className={styles.heroTitle}>Our Blog</h1>
+                <h1 className={styles.heroTitle}>Blog & News</h1>
                 <div className={styles.waveBottom}>
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className={styles.waveSvg}>
                         <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z" fill="#ffffff"></path>

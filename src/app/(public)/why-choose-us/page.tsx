@@ -3,11 +3,11 @@ import styles from './why-choose-us.module.css';
 import { GraduationCap, Home, Users, Utensils, Shield, Heart, Stethoscope, MessageCircle, Book } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'What Sets Us Apart - Complete Facilities & Expert Care',
+    title: 'What Sets Us Apart',
     description: 'Discover why parents choose Sunrays Pre School: quality teaching, spacious classrooms, experienced teachers, nutritious meals, health support, and integration of Nepali culture.',
     keywords: ['best preschool kathmandu', 'quality preschool', 'experienced teachers', 'preschool facilities', 'child nutrition', 'nepali culture education'],
     openGraph: {
-        title: 'What Sets Us Apart - Complete Facilities',
+        title: 'What Sets Us Apart - Sunrays Pre School',
         description: 'Quality teaching, experienced educators, spacious facilities, and comprehensive child care in Kathmandu.',
         type: 'website',
     },
@@ -71,8 +71,31 @@ const features = [
 ];
 
 export default function WhyChooseUsPage() {
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://sunrayspreschool.edu.np'
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'What Sets Us Apart?',
+                item: 'https://sunrayspreschool.edu.np/why-choose-us'
+            }
+        ]
+    };
+
     return (
         <div className={styles.page}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             {/* Hero Section */}
             <section className={styles.hero}>
                 <h1 className={styles.heroTitle}>What Sets Us Apart?</h1>

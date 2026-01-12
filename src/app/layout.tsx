@@ -24,14 +24,15 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 export const metadata: Metadata = {
   metadataBase: new URL('https://sunrayspreschool.edu.np'),
   title: {
-    default: "Sunrays Pre School",
+    default: "Sunrays Pre School | Nurturing Young Minds",
     template: "%s | Sunrays Pre School"
   },
-  description: "Sunrays Pre School provides a fun, safe, and enriching environment for your child's early education. Expert teachers, modern facilities, and engaging programs for holistic development.",
+  description: "Sunrays Pre School in Kathmandu provides a fun, safe, and enriching environment for your child's early education. Expert teachers and modern facilities for holistic development.",
   keywords: [
     "sunrays",
     "sunrays pre school",
     "preschool",
+    "sun rays ",
     "kindergarten",
     "early education",
     "Kathmandu",
@@ -45,7 +46,9 @@ export const metadata: Metadata = {
     "LKG",
     "UKG",
     "Dallu preschool",
-    "best preschool kathmandu"
+    "best preschool kathmandu",
+    "Preschool Kathmandu",
+    "Play Way Method"
   ],
   authors: [{ name: "Sunrays Pre School" }],
   creator: "Sunrays Pre School",
@@ -62,24 +65,29 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/apple-icon.png", type: "image/png", sizes: "180x180" },
     ],
     apple: [
       { url: "/apple-icon.png" },
     ],
     shortcut: "/favicon.ico",
   },
+<<<<<<< HEAD
 
+=======
+  manifest: '/manifest.json',
+>>>>>>> dfc807088e23985f9ed0fad0cc32a01f10f05995
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://sunrayspreschool.edu.np",
     siteName: "Sunrays Pre School",
-    title: "Sunrays Pre School - Nurturing Young Minds with Quality Early Education",
-    description: "A fun, safe, and enriching environment for your child's early education",
+    title: "Sunrays Pre School - Nurturing Young Minds",
+    description: "A fun, safe, and enriching environment for your child's early education in Kathmandu.",
     images: [
       {
-        url: "/sunrays-logo.png",
+        url: "https://sunrayspreschool.edu.np/sunrays-logo.png",
         width: 1200,
         height: 630,
         alt: "Sunrays Pre School Logo",
@@ -90,7 +98,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sunrays Pre School",
     description: "Nurturing Young Minds with Quality Early Education",
-    images: ["/sunrays-logo.png"],
+    images: ["https://sunrayspreschool.edu.np/sunrays-logo.png"],
   },
   robots: {
     index: true,
@@ -103,10 +111,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    // Add Google Search Console verification code here when available
-    // google: 'your-google-verification-code',
-  },
 };
 
 export default function RootLayout({
@@ -114,39 +118,59 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Preschool',
-    name: 'Sunrays Pre School',
-    image: 'https://sunrayspreschool.edu.np/sunrays-logo.png',
-    logo: 'https://sunrayspreschool.edu.np/sunrays-logo.png',
-    description: "Sunrays Pre School provides a fun, safe, and enriching environment for your child's early education .",
-    url: 'https://sunrayspreschool.edu.np',
-    telephone: '01-4282926',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Purnadevi Marg, Dallu',
-      addressLocality: 'Kathmandu',
-      addressRegion: 'Bagmati',
-      postalCode: '44600',
-      addressCountry: 'NP'
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Preschool',
+      '@id': 'https://sunrayspreschool.edu.np/#organization',
+      name: 'Sunrays Pre School',
+      image: 'https://sunrayspreschool.edu.np/sunrays-logo.png',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://sunrayspreschool.edu.np/sunrays-logo.png',
+        width: { '@type': 'QuantitativeValue', value: 512 },
+        height: { '@type': 'QuantitativeValue', value: 512 }
+      },
+      description: "Sunrays Pre School provides a fun, safe, and enriching environment for your child's early education.",
+      url: 'https://sunrayspreschool.edu.np',
+      telephone: '01-4282926',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Purnadevi Marg, Dallu',
+        addressLocality: 'Kathmandu',
+        addressRegion: 'Bagmati',
+        postalCode: '44600',
+        addressCountry: 'NP'
+      },
+      sameAs: [
+        'https://www.facebook.com/sunrayspreschool',
+      ]
     },
-    priceRange: '$$',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '16:00'
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      url: 'https://sunrayspreschool.edu.np',
+      name: 'Sunrays Pre School',
+      publisher: {
+        '@id': 'https://sunrayspreschool.edu.np/#organization'
+      },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://sunrayspreschool.edu.np/?s={search_term_string}'
+        },
+        'query-input': 'required name=search_term_string'
       }
-    ],
-    sameAs: [
-      'https://www.facebook.com/sunrayspreschool',
-    ]
-  };
+    }
+  ];
 
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
+      </head>
       <body className={`${outfit.variable} ${fredoka.variable} ${notoSansDevanagari.variable} antialiased`} suppressHydrationWarning>
         <script
           type="application/ld+json"
