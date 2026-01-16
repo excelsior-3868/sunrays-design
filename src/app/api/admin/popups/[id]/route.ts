@@ -6,8 +6,9 @@ import { auth } from '@/auth';
 // GET - Fetch a single popup by ID
 export async function GET(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    props: { params: Promise<{ id: string }> }
 ) {
+    const params = await props.params;
     try {
         const session = await auth();
         if (!session) {
@@ -32,8 +33,9 @@ export async function GET(
 // PUT - Update a popup by ID
 export async function PUT(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    props: { params: Promise<{ id: string }> }
 ) {
+    const params = await props.params;
     try {
         const session = await auth();
         if (!session) {
@@ -75,8 +77,9 @@ export async function PUT(
 // DELETE - Delete a popup by ID
 export async function DELETE(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    props: { params: Promise<{ id: string }> }
 ) {
+    const params = await props.params;
     try {
         const session = await auth();
         if (!session) {
