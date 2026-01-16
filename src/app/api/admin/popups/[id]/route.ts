@@ -6,9 +6,9 @@ import { auth } from '@/auth';
 // GET - Fetch a single popup by ID
 export async function GET(
     request: NextRequest,
-    props: { params: Promise<{ id: string }> }
+    { params }: { params: Promise<{ id: string }> }
 ) {
-    const params = await props.params;
+    const { id } = await params;
     try {
         const session = await auth();
         if (!session) {
@@ -17,7 +17,7 @@ export async function GET(
 
         await dbConnect();
 
-        const popup = await Popup.findById(params.id).lean();
+        const popup = await Popup.findById(id).lean();
 
         if (!popup) {
             return NextResponse.json({ error: 'Popup not found' }, { status: 404 });
@@ -33,9 +33,9 @@ export async function GET(
 // PUT - Update a popup by ID
 export async function PUT(
     request: NextRequest,
-    props: { params: Promise<{ id: string }> }
+    { params }: { params: Promise<{ id: string }> }
 ) {
-    const params = await props.params;
+    const { id } = await params;
     try {
         const session = await auth();
         if (!session) {
@@ -58,7 +58,7 @@ export async function PUT(
         if (endDate !== undefined) updateData.endDate = endDate ? new Date(endDate) : null;
 
         const popup = await Popup.findByIdAndUpdate(
-            params.id,
+            id,
             updateData,
             { new: true, runValidators: true }
         );
@@ -77,9 +77,9 @@ export async function PUT(
 // DELETE - Delete a popup by ID
 export async function DELETE(
     request: NextRequest,
-    props: { params: Promise<{ id: string }> }
+    { params }: { params: Promise<{ id: string }> }
 ) {
-    const params = await props.params;
+    const { id } = await params;
     try {
         const session = await auth();
         if (!session) {
@@ -88,7 +88,7 @@ export async function DELETE(
 
         await dbConnect();
 
-        const popup = await Popup.findByIdAndDelete(params.id);
+        const popup = await Popup.findByIdAndDelete(id);
 
         if (!popup) {
             return NextResponse.json({ error: 'Popup not found' }, { status: 404 });
