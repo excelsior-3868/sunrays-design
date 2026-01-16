@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+
 import styles from './EventPopup.module.css';
 
 interface Popup {
@@ -81,16 +81,11 @@ export default function EventPopup() {
                     </svg>
                 </button>
 
-                <div className={styles.imageWrapper}>
-                    <Image
-                        src={popup.imageUrl}
-                        alt={popup.title}
-                        fill
-                        sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 800px"
-                        className={styles.image}
-                        priority
-                    />
-                </div>
+                <img
+                    src={popup.imageUrl}
+                    alt={popup.title}
+                    className={styles.image}
+                />
             </div>
         </div>
     );
