@@ -23,11 +23,11 @@ const quickReplies: QuickReply[] = [
     },
     {
         text: "💰 What are the fees?",
-        response: "For detailed fee structure and payment plans, please contact us:\n\n📞 01-4282926\n📧 info.sunrayspreschool@gmail.com\n\nOr visit our Admissions page for more information!"
+        response: "For detailed fee structure and payment plans, please contact us:\n\n📞 01-5382926\n📧 info.sunrayspreschool@gmail.com\n\nOr visit our Admissions page for more information!"
     },
     {
         text: "📝 How to apply?",
-        response: "Admission Process:\n\n1️⃣ Fill out the application form\n2️⃣ Submit required documents\n3️⃣ Schedule a school visit\n4️⃣ Complete the enrollment\n\nVisit our Admissions page or call us at 01-4282926 for assistance!"
+        response: "Admission Process:\n\n1️⃣ Fill out the application form\n2️⃣ Submit required documents\n3️⃣ Schedule a school visit\n4️⃣ Complete the enrollment\n\nVisit our Admissions page or call us at 01-5382926 for assistance!"
     },
     {
         text: "📍 Where are you located?",
@@ -47,7 +47,7 @@ const quickReplies: QuickReply[] = [
     },
     {
         text: "📞 Contact information",
-        response: "📞 Contact Us:\n\n☎️ Phone: 01-4282926\n📧 Email: info.sunrayspreschool@gmail.com\n📍 Address: Purnadevi Marg, Dallu, Kathmandu-15\n\n🌐 Social Media:\nFacebook | Instagram | Twitter | YouTube\n\nWe're here to help! 😊"
+        response: "📞 Contact Us:\n\n☎️ Phone: 01-5382926\n📧 Email: info.sunrayspreschool@gmail.com\n📍 Address: Purnadevi Marg, Dallu, Kathmandu-15\n\n🌐 Social Media:\nFacebook | Instagram | Twitter | YouTube\n\nWe're here to help! 😊"
     }
 ];
 
@@ -111,7 +111,7 @@ export default function Chatbot() {
         };
 
         // Simple keyword matching for automated responses
-        let botResponse = "Thank you for your message! For specific inquiries, please:\n\n📞 Call us: 01-4282926\n📧 Email: info.sunrayspreschool@gmail.com\n\nOr choose from the quick replies below to get instant answers!";
+        let botResponse = "Thank you for your message! For specific inquiries, please:\n\n📞 Call us: \n📧 Email: info.sunrayspreschool@gmail.com\n\nOr choose from the quick replies below to get instant answers!";
 
         const lowerInput = inputValue.toLowerCase();
 

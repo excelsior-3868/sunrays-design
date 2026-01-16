@@ -4,11 +4,11 @@ import ContactForm from './ContactForm';
 
 export const metadata: Metadata = {
     title: 'Contact Us',
-    description: 'Contact Sunrays Pre School in Kathmandu. Visit us at Purnadevi Marg, Dallu or call 01-4282926. We\'re here to answer your questions about admissions and programs.',
+    description: 'Contact Sunrays Pre School in Kathmandu. Visit us at Purnadevi Marg, Dallu or call 01-5382926. We\'re here to answer your questions about admissions and programs.',
     keywords: ['contact sunrays preschool', 'preschool kathmandu contact', 'dallu preschool', 'admission inquiry', 'preschool location'],
     openGraph: {
         title: 'Contact Sunrays Pre School',
-        description: 'Get in touch with us at Purnadevi Marg, Dallu, Kathmandu. Call 01-4282926 or email info.sunrayspreschool@gmail.com',
+        description: 'Get in touch with us at Purnadevi Marg, Dallu, Kathmandu. Call 01-5382926 or email info.sunrayspreschool@gmail.com',
         type: 'website',
     },
 };

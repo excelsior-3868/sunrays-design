@@ -61,6 +61,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sunrayspreschool.edu.np',
   },
+  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -72,14 +73,14 @@ export const metadata: Metadata = {
     ],
     shortcut: "/favicon.ico",
   },
-  manifest: '/manifest.json',
+
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://sunrayspreschool.edu.np",
     siteName: "Sunrays Pre School",
     title: "Sunrays Pre School - Nurturing Young Minds",
-    description: "A fun, safe, and enriching environment for your child's early education in Kathmandu.",
+    description: "A fun, safe, and enriching environment for your child's early education.",
     images: [
       {
         url: "https://sunrayspreschool.edu.np/sunrays-logo.png",
@@ -128,7 +129,7 @@ export default function RootLayout({
       },
       description: "Sunrays Pre School provides a fun, safe, and enriching environment for your child's early education.",
       url: 'https://sunrayspreschool.edu.np',
-      telephone: '01-4282926',
+      telephone: '01-5382926',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Purnadevi Marg, Dallu',
@@ -162,10 +163,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
-      </head>
+
       <body className={`${outfit.variable} ${fredoka.variable} ${notoSansDevanagari.variable} antialiased`} suppressHydrationWarning>
         <script
           type="application/ld+json"

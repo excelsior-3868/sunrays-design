@@ -74,7 +74,7 @@ export default function ContactForm() {
                                     </p>
                                     <p className={styles.locationItem}>
                                         <Phone size={16} className={styles.icon} />
-                                        01-4282926
+                                        01-5382926
                                     </p>
                                     <p className={styles.locationItem}>
                                         <Mail size={16} className={styles.icon} />
