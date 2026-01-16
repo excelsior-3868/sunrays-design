@@ -3,12 +3,15 @@ import dbConnect from '@/lib/db';
 import Popup from '@/lib/models/Popup';
 import { auth } from '@/auth';
 
+export const runtime = 'nodejs';
+
 // GET - Fetch a single popup by ID
 export async function GET(
     request: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    props: { params: Promise<{ id: string }> }
 ) {
-    const { id } = await params;
+    const params = await props.params;
+    const { id } = params;
     try {
         const session = await auth();
         if (!session) {
@@ -33,9 +36,10 @@ export async function GET(
 // PUT - Update a popup by ID
 export async function PUT(
     request: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    props: { params: Promise<{ id: string }> }
 ) {
-    const { id } = await params;
+    const params = await props.params;
+    const { id } = params;
     try {
         const session = await auth();
         if (!session) {
@@ -54,8 +58,14 @@ export async function PUT(
         if (linkUrl !== undefined) updateData.linkUrl = linkUrl;
         if (isActive !== undefined) updateData.isActive = isActive;
         if (priority !== undefined) updateData.priority = priority;
-        if (startDate !== undefined) updateData.startDate = startDate ? new Date(startDate) : null;
-        if (endDate !== undefined) updateData.endDate = endDate ? new Date(endDate) : null;
+
+        // Handle dates safely
+        if (startDate !== undefined) {
+            updateData.startDate = startDate ? new Date(startDate) : null;
+        }
+        if (endDate !== undefined) {
+            updateData.endDate = endDate ? new Date(endDate) : null;
+        }
 
         const popup = await Popup.findByIdAndUpdate(
             id,
@@ -77,9 +87,10 @@ export async function PUT(
 // DELETE - Delete a popup by ID
 export async function DELETE(
     request: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    props: { params: Promise<{ id: string }> }
 ) {
-    const { id } = await params;
+    const params = await props.params;
+    const { id } = params;
     try {
         const session = await auth();
         if (!session) {
