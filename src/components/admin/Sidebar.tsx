@@ -13,12 +13,14 @@ import {
     FileEdit,
     Info,
     LogOut,
+    Bell,
 } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
 const menuItems = [
     { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
     { href: '/admin/contacts', icon: Mail, label: 'Contacts' },
+    { href: '/admin/popups', icon: Bell, label: 'Event Popups' },
     { href: '/admin/gallery', icon: Image, label: 'Gallery' },
     { href: '/admin/events', icon: Calendar, label: 'Events' },
     { href: '/admin/blog', icon: FileText, label: 'Blog' },

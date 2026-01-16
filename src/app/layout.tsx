@@ -129,7 +129,7 @@ export default function RootLayout({
       },
       description: "Sunrays Pre School provides a fun, safe, and enriching environment for your child's early education.",
       url: 'https://sunrayspreschool.edu.np',
-      telephone: '01-4282926',
+      telephone: '01-5382926',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Purnadevi Marg, Dallu',

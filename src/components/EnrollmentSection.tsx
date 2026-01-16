@@ -84,7 +84,7 @@ export default function EnrollmentSection() {
                             </div>
                             <div>
                                 <h4 className={styles.contactLabel}>Call Us</h4>
-                                <p className={styles.contactText}>01-4282926</p>
+                                <p className={styles.contactText}>01-5382926</p>
                                 <p className={styles.contactTextSmall}>Sun-Fri: 9:00 AM - 2:45 PM</p>
                             </div>
                         </div>

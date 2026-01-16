@@ -56,7 +56,7 @@ export default function Footer() {
                         </div>
                         <div className={styles.contactItem}>
                             <Phone size={20} className={styles.contactIcon} />
-                            <p>01-4282926</p>
+                            <p>01-5382926</p>
                         </div>
                         <div className={styles.contactItem}>
                             <Mail size={20} className={styles.contactIcon} />
