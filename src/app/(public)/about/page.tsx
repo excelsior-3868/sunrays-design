@@ -43,9 +43,7 @@ export default function AboutPage() {
             />
             {/* Hero Section */}
             <section className={styles.hero}>
-                <div className={styles.heroContent}>
-                    <h1 className={styles.heroTitle}>About Us</h1>
-                </div>
+                <h1 className={styles.heroTitle}>About Us</h1>
                 <div className={styles.waveBottom}>
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className={styles.waveSvg}>
                         <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z" fill="#ffffff"></path>
